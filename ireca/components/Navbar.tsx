@@ -9,10 +9,10 @@ const links = [
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-8 md:px-14 py-5 bg-[#FFF9F2]">
+    <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-8 md:px-14 py-5 bg-[#FFF9F2] border-b border-[#001D2F]/10">
       <span
         className="text-[#001D2F]"
-        style={{ fontFamily: "var(--font-belleza)", fontSize: "1.6rem" }}
+        style={{ fontFamily: "var(--font-belleza)", fontSize: "1.9rem" }}
       >
         ireca
       </span>
@@ -26,7 +26,7 @@ export default function Navbar() {
             <Link
               href={href}
               style={{ fontFamily: "var(--font-barlow)" }}
-              className="text-[0.62rem] tracking-[0.22em] uppercase text-[#001D2F]/70 transition-colors hover:text-[#001D2F]"
+              className="text-[0.75rem] tracking-[0.22em] uppercase text-[#001D2F]/70 transition-colors hover:text-[#001D2F]"
             >
               {label}
             </Link>
