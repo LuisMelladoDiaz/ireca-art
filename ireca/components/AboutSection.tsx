@@ -33,7 +33,7 @@ export default function AboutSection() {
               className="leading-none text-[#001D2F]"
               style={{
                 fontFamily: "var(--font-belleza)",
-                fontSize: "clamp(3.5rem, 8vw, 8rem)",
+                fontSize: "clamp(3.5rem, 7vw, 7rem)",
               }}
             >
               {title}
@@ -53,10 +53,10 @@ export default function AboutSection() {
 
           {/* Middle: bio */}
           <div
-            className="flex flex-col gap-4 leading-[1.9] text-[#001D2F]/70 text-justify"
+            className="flex flex-col gap-4 md:gap-2 leading-[1.9] md:leading-[1.65] text-[#001D2F]/70 text-justify"
             style={{
               fontFamily: "var(--font-barlow)",
-              fontSize: "clamp(0.95rem, 1.25vw, 1.2rem)",
+              fontSize: "clamp(0.85rem, 1.1vw, 1.1rem)",
               fontWeight: 300,
             }}
           >
