@@ -8,38 +8,41 @@ export default function AboutSection() {
   return (
     <section
       id="sobre-mi"
-      className="min-h-screen bg-[#FFF9F2] flex items-center px-8 md:px-40 py-20"
+      className="bg-[#FFF9F2] px-8 md:px-20 lg:px-40 py-16 md:py-24"
     >
-      <div className="w-full flex flex-col md:flex-row gap-10 md:gap-16 items-stretch">
+      <div className="flex flex-col md:flex-row gap-10 md:gap-16">
 
         {/* Left: photo */}
-        <div className="w-full md:w-[42%]">
+        <div className="w-full md:w-[42%] shrink-0">
           <Image
             src="/images/About.jpg"
             alt="Ireca en su estudio"
             width={600}
             height={900}
-            className="w-full h-auto object-cover"
+            className="w-full h-auto"
             sizes="(max-width: 768px) 100vw, 42vw"
           />
         </div>
 
-        {/* Right: título arriba · bio en medio · CV abajo */}
-        <div className="flex-1 flex flex-col justify-between">
+        {/* Right: contenido */}
+        <div className="flex flex-col gap-8 md:gap-0 md:justify-between md:py-2">
 
-          {/* Top */}
+          {/* Top: título + subtítulo */}
           <div>
             <h2
               className="leading-none text-[#001D2F]"
-              style={{ fontFamily: "var(--font-belleza)", fontSize: "clamp(4.5rem, 8vw, 8rem)" }}
+              style={{
+                fontFamily: "var(--font-belleza)",
+                fontSize: "clamp(3.5rem, 8vw, 8rem)",
+              }}
             >
               {title}
             </h2>
             <p
-              className="mt-3 tracking-[0.2em] uppercase"
+              className="mt-2 tracking-[0.2em] uppercase"
               style={{
                 fontFamily: "var(--font-barlow)",
-                fontSize: "clamp(1rem, 2.2vw, 1.5rem)",
+                fontSize: "clamp(0.9rem, 2.2vw, 1.5rem)",
                 color: "#468B97",
                 fontWeight: 500,
               }}
@@ -48,12 +51,12 @@ export default function AboutSection() {
             </p>
           </div>
 
-          {/* Middle */}
+          {/* Middle: bio */}
           <div
-            className="flex flex-col gap-5 leading-[1.9] text-[#001D2F]/70 text-justify"
+            className="flex flex-col gap-4 leading-[1.9] text-[#001D2F]/70 text-justify"
             style={{
               fontFamily: "var(--font-barlow)",
-              fontSize: "clamp(1rem, 1.25vw, 1.2rem)",
+              fontSize: "clamp(0.95rem, 1.25vw, 1.2rem)",
               fontWeight: 300,
             }}
           >
@@ -62,7 +65,7 @@ export default function AboutSection() {
             ))}
           </div>
 
-          {/* Bottom */}
+          {/* Bottom: CV */}
           <div>
             <a
               href={cvUrl}

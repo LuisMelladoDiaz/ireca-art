@@ -13,21 +13,21 @@ export default function HeroSection() {
       />
 
       {/* Bottom-right text overlay */}
-      <div className="absolute bottom-10 right-10 md:bottom-14 md:right-14 text-right">
+      <div className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 md:bottom-14 md:right-14 text-right max-w-[85vw]">
         <h1
           className="leading-none text-[#001D2F]"
           style={{
             fontFamily: "var(--font-belleza)",
-            fontSize: "clamp(5rem, 12vw, 11rem)",
+            fontSize: "clamp(3.5rem, 12vw, 11rem)",
           }}
         >
           ireca
         </h1>
         <p
-          className="tracking-[0.12em] uppercase text-[#001D2F]"
+          className="tracking-[0.08em] sm:tracking-[0.12em] uppercase text-[#001D2F]"
           style={{
             fontFamily: "var(--font-barlow)",
-            fontSize: "clamp(1.4rem, 4.5vw, 5rem)",
+            fontSize: "clamp(1rem, 4.5vw, 5rem)",
             fontWeight: 500,
           }}
         >
