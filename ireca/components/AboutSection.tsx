@@ -1,4 +1,8 @@
 import Image from "next/image";
+import content from "@/data/content.json";
+
+const { title, subtitle, bio, cvUrl } = content.about;
+const paragraphs = bio.split("\n\n");
 
 export default function AboutSection() {
   return (
@@ -8,7 +12,7 @@ export default function AboutSection() {
     >
       <div className="w-full flex flex-col md:flex-row gap-10 md:gap-16 items-stretch">
 
-        {/* Left: photo — proporciones naturales */}
+        {/* Left: photo */}
         <div className="w-full md:w-[42%]">
           <Image
             src="/images/About.jpg"
@@ -20,19 +24,16 @@ export default function AboutSection() {
           />
         </div>
 
-        {/* Right: título arriba · texto en medio · CV abajo */}
+        {/* Right: título arriba · bio en medio · CV abajo */}
         <div className="flex-1 flex flex-col justify-between">
 
           {/* Top */}
           <div>
             <h2
               className="leading-none text-[#001D2F]"
-              style={{
-                fontFamily: "var(--font-belleza)",
-                fontSize: "clamp(4.5rem, 8vw, 8rem)",
-              }}
+              style={{ fontFamily: "var(--font-belleza)", fontSize: "clamp(4.5rem, 8vw, 8rem)" }}
             >
-              ireca
+              {title}
             </h2>
             <p
               className="mt-3 tracking-[0.2em] uppercase"
@@ -43,41 +44,31 @@ export default function AboutSection() {
                 fontWeight: 500,
               }}
             >
-              Chipiona, 2003
+              {subtitle}
             </p>
           </div>
 
           {/* Middle */}
-          <p
-            className="leading-[1.9] text-[#001D2F]/70 text-justify"
+          <div
+            className="flex flex-col gap-5 leading-[1.9] text-[#001D2F]/70 text-justify"
             style={{
               fontFamily: "var(--font-barlow)",
               fontSize: "clamp(1rem, 1.25vw, 1.2rem)",
               fontWeight: 300,
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat.
-            <br /><br />
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-          </p>
+            {paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
 
           {/* Bottom */}
           <div>
             <a
-              href="/ireca-cv.pdf"
+              href={cvUrl}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                fontFamily: "var(--font-lato)",
-                fontWeight: 700,
-                fontSize: "0.85rem",
-              }}
+              style={{ fontFamily: "var(--font-lato)", fontWeight: 700, fontSize: "0.85rem" }}
               className="inline-block px-8 py-3 tracking-[0.2em] uppercase bg-[#468B97]/20 text-[#468B97] transition-colors hover:bg-[#468B97]/35"
             >
               CV

@@ -1,0 +1,21 @@
+{
+  "about": {
+    "title": "ireca",
+    "subtitle": "Chipiona, 2003",
+    "bio": "Ireca es el seudónimo de la artista andaluza Irene Caña. Nació en el pueblo costero de Chipiona que ha sido una gran influencia en ella y en su forma de expresarse a través de su creación artística. Su pasión por la pintura nace de la afición familiar a la pintura por parte de sus tíos. Los ha visto pintar desde que era pequeña.\n\nGraduada en Bellas Artes por la Universidad de Sevilla y especializada en el campo de la pintura, ha participado en varias exposiciones organizadas por la universidad y próximamente inaugurará su primera exposición individual en su pueblo natal.\n\nEl miedo al olvido provocado por el paso del tiempo protagoniza su proyecto artístico. Durante sus años de estudiante ha ido recopilando una serie de elementos que le acercaban a Chipiona cuando más lejos estaba de ella y del agua de la playa. Las caracolas, por ejemplo, se han convertido en un símbolo identitario de cuanto lo añoraba.",
+    "cvUrl": "/ireca-cv.pdf"
+  },
+  "statement": {
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+  },
+  "obras": {
+    "archivoTinta": {
+      "llaves": {
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+      },
+      "selvatico": {
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+      }
+    }
+  }
+}
