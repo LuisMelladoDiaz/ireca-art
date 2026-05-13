@@ -18,7 +18,7 @@ export default function HeroSection() {
       {/* Texto:
             móvil  → centrado, fondo de pantalla
             desktop → derecha, esquina inferior derecha */}
-      <div className="absolute bottom-8 left-6 right-6 text-center md:left-auto md:right-14 md:bottom-14 md:text-right">
+      <div className="absolute bottom-15 left-6 right-6 text-center md:left-auto md:right-14 md:bottom-14 md:text-right">
         <h1
           className="leading-none text-[#001D2F]"
           style={{
