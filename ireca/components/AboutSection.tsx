@@ -71,8 +71,8 @@ export default function AboutSection() {
               href={cvUrl}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ fontFamily: "var(--font-lato)", fontWeight: 700, fontSize: "1.1rem" }}
-              className="inline-block px-10 py-4 tracking-[0.25em] uppercase bg-[#468B97]/20 text-[#468B97] transition-colors hover:bg-[#468B97]/35"
+              style={{ fontFamily: "var(--font-lato)", fontWeight: 700 }}
+              className="inline-block text-sm md:text-lg px-6 py-2.5 md:px-10 md:py-4 tracking-[0.25em] uppercase bg-[#468B97]/20 text-[#468B97] transition-colors hover:bg-[#468B97]/35"
             >
               CV
             </a>
