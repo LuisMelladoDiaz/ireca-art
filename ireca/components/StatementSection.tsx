@@ -5,21 +5,21 @@ const paragraphs = content.statement.text.split("\n\n");
 
 export default function StatementSection() {
   return (
-    <section id="statement" className="min-h-screen bg-[#FFF9F2] flex flex-col md:flex-row items-stretch">
-      
-      {/* Left: title + image */}
-      <div className="w-full md:w-[45%] flex flex-col px-10 md:px-0 pt-24 pb-10">
-        
-        {/* Título */}
+    <section id="statement" className="min-h-screen bg-[#FFF9F2] flex flex-col md:flex-row items-stretch scroll-mt-16">
+
+      {/* Left: título (desktop) + imagen */}
+      <div className="w-full md:w-[45%] flex flex-col px-0 md:px-0 md:pt-24 md:pb-10 order-3 md:order-none">
+
+        {/* Título - solo desktop */}
         <h2
-          className="text-[#001D2F] leading-none text-right px-10"
-          style={{ fontFamily: "var(--font-belleza)", fontSize: "clamp(4rem, 7.5vw, 7rem)" }}
+          className="hidden md:block text-[#001D2F] leading-none text-right px-10"
+          style={{ fontFamily: "var(--font-belleza)", fontSize: "clamp(2.5rem, 7.5vw, 7rem)" }}
         >
-          Statement
+          statement
         </h2>
 
         {/* Imagen */}
-        <div className="relative flex-1 min-h-[320px]">
+        <div className="relative flex-1 min-h-[280px] md:min-h-[320px]">
           <Image
             src="/images/Statement.png"
             alt="Paleta de pintura"
@@ -29,14 +29,21 @@ export default function StatementSection() {
           />
         </div>
 
-
       </div>
 
-      {/* Right: texto */}
-      <div className="flex-1 flex items-center px-10 md:px-16 py-24">
+      {/* Right: título (mobile) + texto */}
+      <div className="flex-1 flex flex-col md:justify-center px-10 md:px-16 pt-8 pb-10 md:py-24 order-2 md:order-none">
 
-        {/* Cuadro de texto */}
-        <div className="p-8 md:p-12 w-full flex flex-col gap-5 text-justify" style={{ backgroundColor: "rgba(255, 249, 242, 0.8)", borderRadius: "8px" }}>
+        {/* Título - solo mobile */}
+        <h2
+          className="md:hidden text-[#001D2F] leading-none text-left mb-6"
+          style={{ fontFamily: "var(--font-belleza)", fontSize: "clamp(2.5rem, 7.5vw, 7rem)" }}
+        >
+          statement
+        </h2>
+
+        {/* Texto */}
+        <div className="md:p-12 w-full flex flex-col gap-5 text-justify">
           {paragraphs.map((p, i) => (
             <p
               key={i}
@@ -53,7 +60,6 @@ export default function StatementSection() {
         </div>
 
       </div>
-
 
     </section>
   );
