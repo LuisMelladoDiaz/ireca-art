@@ -7,7 +7,7 @@ import AboutSection from "@/components/AboutSection";
 export default function Home() {
   return (
     <main className="relative bg-[#FFF9F2]">
-      {/* Grain overlay */}
+
       <div
         className="pointer-events-none fixed inset-0 z-50 opacity-40"
         style={{
@@ -19,7 +19,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
 
-      {/* <StatementSection /> */}
+      <StatementSection />
       {/* <ObrasSection /> */}
 
     </main>
