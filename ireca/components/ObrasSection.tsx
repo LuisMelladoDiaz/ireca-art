@@ -2,11 +2,9 @@ import Image from "next/image";
 import SeriesCarousel from "./SeriesCarousel";
 
 const llaves = [
-  { src: "/images/archivo_tinta/Llaves/Llaves_1.jpg", alt: "Llaves 1" },
-  { src: "/images/archivo_tinta/Llaves/Llaves_2.jpg", alt: "Llaves 2" },
-  { src: "/images/archivo_tinta/Llaves/Llaves_3.jpg", alt: "Llaves 3" },
-  { src: "/images/archivo_tinta/Llaves/Llaves_4.jpg", alt: "Llaves 4" },
-  { src: "/images/archivo_tinta/Llaves/Llaves_5.jpg", alt: "Llaves 5" },
+  { src: "/images/archivo_tinta/Llaves/Llave_1.jpg", alt: "Llaves 1" },
+  { src: "/images/archivo_tinta/Llaves/Llave_2.jpg", alt: "Llaves 2" },
+  { src: "/images/archivo_tinta/Llaves/Llave_3.jpg", alt: "Llaves 3" },
 ];
 
 const otherwordly = [
@@ -67,7 +65,7 @@ export default function ObrasSection() {
               sed do eiusmod tempor incididunt ut labore et dolore magna.
             </p>
             <Image
-              src="/images/archivo_tinta/Llaves/Llaves_1.jpg"
+              src="/images/archivo_tinta/Llaves/Llave_1.jpg"
               alt="Llaves — obra destacada"
               width={600}
               height={400}
@@ -80,7 +78,7 @@ export default function ObrasSection() {
           {/* Right: featured image */}
           <div className="flex-1 relative min-h-[420px] md:min-h-[560px]">
             <Image
-              src="/images/archivo_tinta/Llaves/Llaves_3.jpg"
+              src="/images/archivo_tinta/Llaves/Llave_3.jpg"
               alt="Llaves — obra destacada"
               fill
               className="object-cover object-center"
@@ -155,7 +153,7 @@ export default function ObrasSection() {
             de obras
           </p>
         </div>
-        <SeriesCarousel images={selvatico} perPage={2} />
+        <SeriesCarousel images={selvatico} perPage={1} />
       </section>
 
       {/* ── 6. Escena final — full bleed ──────────────────────────── */}

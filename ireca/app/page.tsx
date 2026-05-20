@@ -20,7 +20,7 @@ export default function Home() {
       <AboutSection />
 
       <StatementSection />
-      {/* <ObrasSection /> */}
+      <ObrasSection />
 
     </main>
   );
