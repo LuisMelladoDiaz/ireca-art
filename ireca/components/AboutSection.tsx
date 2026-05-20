@@ -53,11 +53,11 @@ export default function AboutSection() {
 
           {/* Middle: bio */}
           <div
-            className="flex flex-col gap-4 md:gap-2 leading-[1.9] md:leading-[1.65] text-[#001D2F]/70 text-justify"
+            className="flex flex-col gap-5 leading-[1.9] text-[#001D2F]/70 text-justify"
             style={{
               fontFamily: "var(--font-barlow)",
-              fontSize: "clamp(0.85rem, 1.1vw, 1.1rem)",
-              fontWeight: 300,
+              fontSize: "clamp(1rem, 1.25vw, 1.2rem)",
+              fontWeight: 400,
             }}
           >
             {paragraphs.map((p, i) => (
