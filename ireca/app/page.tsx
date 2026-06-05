@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import StatementSection from "@/components/StatementSection";
-import ObrasSection from "@/components/ObrasSection";
+import ArchivoTintaSection from "@/components/ArchivoTintaSection";
 import AboutSection from "@/components/AboutSection";
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
       <AboutSection />
 
       <StatementSection />
-      <ObrasSection />
+      <ArchivoTintaSection />
 
     </main>
   );
