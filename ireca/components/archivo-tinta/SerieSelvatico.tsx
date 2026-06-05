@@ -1,3 +1,6 @@
+"use client";
+
+import Image from "next/image";
 import SeriesCarousel from "@/components/SeriesCarousel";
 
 const images = [
@@ -9,30 +12,52 @@ const images = [
 
 export default function SerieSelvatico() {
   return (
-    <section className="bg-[#FFF9F2] px-8 md:px-14 py-16">
-      <div className="mb-10 flex items-baseline gap-6">
-        <h3
-          className="italic text-[#001D2F]"
-          style={{
-            fontFamily: "var(--font-belleza)",
-            fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-          }}
-        >
-          Selvático
-        </h3>
-        <p
-          className="tracking-[0.18em] uppercase"
-          style={{
-            fontFamily: "var(--font-lato)",
-            fontSize: "clamp(0.9rem, 1.5vw, 1.1rem)",
-            color: "#468B97",
-            fontWeight: 700,
-          }}
-        >
-          de obras
-        </p>
+    <section className="bg-[#FFF9F2] px-8 md:px-14 py-5">
+      <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
+
+        {/* Izquierda 2/3: imagen estática grande */}
+        <div className="w-full md:w-[66%]">
+          <Image
+            src="/images/archivo_tinta/Llaves/Llave_2.jpg"
+            alt="Selvático — obra destacada"
+            width={1200}
+            height={900}
+            className="w-full h-auto"
+            sizes="(max-width: 768px) 100vw, 66vw"
+          />
+        </div>
+
+        {/* Derecha 1/3: carrusel pequeño + título + descripción */}
+        <div className="w-full md:w-[33%] flex flex-col gap-6">
+
+          <SeriesCarousel images={images} perPage={1} />
+
+          <p
+            className="italic"
+            style={{
+              fontFamily: "var(--font-lato)",
+              fontSize: "clamp(2rem, 4vw, 3.5rem)",
+              color: "#A11B39",
+              fontWeight: 700,
+            }}
+          >
+            Selvático
+          </p>
+
+          <p
+            className="leading-[1.8] text-[#001D2F]/60"
+            style={{
+              fontFamily: "var(--font-barlow)",
+              fontSize: "clamp(0.95rem, 1.3vw, 1.15rem)",
+              fontWeight: 300,
+            }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+
+        </div>
       </div>
-      <SeriesCarousel images={images} perPage={1} />
     </section>
   );
 }

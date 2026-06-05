@@ -1,23 +1,38 @@
 import Image from "next/image";
 
 const images = [
-  { src: "/images/archivo_tinta/Otherwordly/Callejon.png",       alt: "Callejón" },
-  { src: "/images/archivo_tinta/Otherwordly/Escena_inicio.png",  alt: "Escena inicio" },
   { src: "/images/archivo_tinta/Otherwordly/Restaurante.png",    alt: "Restaurante" },
   { src: "/images/archivo_tinta/Otherwordly/Escena_final_1.png", alt: "Escena final 1" },
-  { src: "/images/archivo_tinta/Otherwordly/Escena_final_2.png", alt: "Escena final 2" },
+  { src: "/images/archivo_tinta/Otherwordly/Escena_inicio.png",  alt: "Escena inicio" },
+  { src: "/images/archivo_tinta/Otherwordly/Callejon.png",       alt: "Callejón" }, 
+
 ];
 
 export default function SerieOtherworldly() {
   return (
     <>
-      <section className="bg-[#FFF9F2] px-8 md:px-14 py-16">
+
+    <section className="relative w-full h-screen">
+        <Image
+          src="/images/archivo_tinta/Otherwordly/Escena_final_2.png"
+          alt="Otherwordly — escena final"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
         <p
-          className="mb-8 tracking-[0.18em] uppercase text-[#001D2F]/40"
-          style={{ fontFamily: "var(--font-lato)", fontSize: "0.7rem", fontWeight: 700 }}
+          className="absolute bottom-10 right-10 md:bottom-14 md:right-14 text-right italic text-white/80"
+          style={{
+            fontFamily: "var(--font-belleza)",
+            fontSize: "clamp(1.5rem, 3vw, 3rem)",
+          }}
         >
           Otherwordly
         </p>
+      </section>
+
+      <section className="bg-[#FFF9F2] px-8 md:px-14 py-16">
+       
         <div className="columns-2 gap-3 space-y-3">
           {images.map(({ src, alt }) => (
             <div key={src} className="break-inside-avoid">
@@ -44,24 +59,7 @@ export default function SerieOtherworldly() {
         />
       </section>
 
-      <section className="relative w-full h-screen">
-        <Image
-          src="/images/archivo_tinta/Otherwordly/Escena_final_1.png"
-          alt="Otherwordly — escena final"
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <p
-          className="absolute bottom-10 right-10 md:bottom-14 md:right-14 text-right italic text-white/80"
-          style={{
-            fontFamily: "var(--font-belleza)",
-            fontSize: "clamp(1.5rem, 3vw, 3rem)",
-          }}
-        >
-          Otherwordly
-        </p>
-      </section>
+      
     </>
   );
 }
