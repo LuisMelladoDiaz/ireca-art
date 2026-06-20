@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(dir \"c:\\\\Users\\\\cosan\\\\Desktop\\\\ireca-art\\\\ireca\\\\node_modules\\\\next\\\\dist\\\\docs\\\\01-app\" /b)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(Remove-Item \"c:\\\\Users\\\\cosan\\\\Desktop\\\\ireca-art\\\\ireca\\\\components\\\\ObrasSection.tsx\")",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

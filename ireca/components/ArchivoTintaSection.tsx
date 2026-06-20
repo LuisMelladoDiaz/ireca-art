@@ -17,8 +17,8 @@ export default function ArchivoTintaSection() {
 
       <SerieLlaves />
       <SerieSelvatico />
-
-      {<SerieOtherworldly />}
+      <SerieOtherworldly />
+      
     </div>
   );
 }
