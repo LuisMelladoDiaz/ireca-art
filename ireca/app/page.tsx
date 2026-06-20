@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import StatementSection from "@/components/StatementSection";
-import ArchivoTintaSection from "@/components/ArchivoTintaSection";
+import ArchivoTintaSection    from "@/components/ArchivoTintaSection";
+import ArchivoPlctoricoSection from "@/components/ArchivoPlctoricoSection";
 import AboutSection from "@/components/AboutSection";
 
 export default function Home() {
@@ -18,8 +19,8 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
-
       <StatementSection />
+      <ArchivoPlctoricoSection />
       <ArchivoTintaSection />
 
     </main>
