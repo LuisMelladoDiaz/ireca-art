@@ -4,6 +4,7 @@ import StatementSection from "@/components/StatementSection";
 import ArchivoTintaSection    from "@/components/ArchivoTintaSection";
 import ArchivoPlctoricoSection from "@/components/ArchivoPlctoricoSection";
 import AboutSection from "@/components/AboutSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <StatementSection />
       <ArchivoPlctoricoSection />
       <ArchivoTintaSection />
+      <Footer />
 
     </main>
   );

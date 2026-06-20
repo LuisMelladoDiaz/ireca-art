@@ -12,7 +12,7 @@ const images = [
 
 export default function SerieSelvatico() {
   return (
-    <section className="bg-[#FFF9F2] px-6 md:px-14 py-10 md:py-5">
+    <section className="bg-[#FFF9F2] px-6 md:px-14 py-10 md:py-5 border-t border-[#001D2F]/8">
       <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
 
         {/* Izquierda 2/3: imagen estática grande */}

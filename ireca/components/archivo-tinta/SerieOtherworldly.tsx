@@ -66,7 +66,7 @@ export default function SerieOtherworldly() {
   return (
     <>
       {/* Full bleed — Escena final */}
-      <section className="relative w-full h-screen">
+      <section className="relative w-full h-screen border-t border-[#001D2F]/8">
         <Image
           src="/images/archivo_tinta/Otherwordly/Escena_final_1.png"
           alt="Otherwordly — escena final"
