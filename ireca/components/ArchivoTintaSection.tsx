@@ -1,6 +1,9 @@
+import content from "@/data/content.json";
 import SerieLlaves from "./archivo-tinta/SerieLlaves";
 import SerieOtherworldly from "./archivo-tinta/SerieOtherworldly";
 import SerieSelvatico from "./archivo-tinta/SerieSelvatico";
+
+const { title, intro } = content.obras.archivoTinta;
 
 export default function ArchivoTintaSection() {
   return (
@@ -12,13 +15,20 @@ export default function ArchivoTintaSection() {
           fontSize: "clamp(3.5rem, 7vw, 6.5rem)",
         }}
       >
-        Archivo de tinta
+        {title}
       </h2>
+
+      <p
+        className="leading-[1.8] text-[#001D2F]/60 text-center max-w-2xl mx-auto px-6 mt-6"
+        style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.95rem, 1.3vw, 1.15rem)", fontWeight: 300 }}
+      >
+        {intro}
+      </p>
 
       <SerieLlaves />
       <SerieSelvatico />
       <SerieOtherworldly />
-      
+
     </div>
   );
 }

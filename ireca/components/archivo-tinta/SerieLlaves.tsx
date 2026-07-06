@@ -1,4 +1,7 @@
 import Image from "next/image";
+import content from "@/data/content.json";
+
+const { title, text } = content.obras.archivoTinta.series.llaves;
 
 export default function SerieLlaves() {
   return (
@@ -16,7 +19,7 @@ export default function SerieLlaves() {
               fontWeight: 700,
             }}
           >
-            Llaves
+            {title}
           </p>
           <p
             className="leading-[1.8] text-[#001D2F]/60 md:text-right"
@@ -26,9 +29,8 @@ export default function SerieLlaves() {
               fontWeight: 300,
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna.
-            </p>
+            {text}
+          </p>
           <Image
             src="/images/archivo_tinta/Llaves/Llave_3.jpg"
             alt="Llaves — cerradura"

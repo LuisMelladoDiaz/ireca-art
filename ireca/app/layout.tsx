@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Belleza, Barlow, Lato } from "next/font/google";
+import { LightboxProvider } from "@/components/Lightbox";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -42,7 +43,9 @@ export default function RootLayout({
       lang="es"
       className={`${cormorant.variable} ${belleza.variable} ${barlow.variable} ${lato.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#FFF9F2]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#FFF9F2]">
+        <LightboxProvider>{children}</LightboxProvider>
+      </body>
     </html>
   );
 }

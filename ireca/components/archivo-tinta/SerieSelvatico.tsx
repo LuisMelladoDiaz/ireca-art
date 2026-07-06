@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import SeriesCarousel from "@/components/SeriesCarousel";
+import content from "@/data/content.json";
+
+const { title, text } = content.obras.archivoTinta.series.selvatico;
 
 const images = [
   { src: "/images/archivo_tinta/Selvatico/Iguana.png",    alt: "Iguana" },
@@ -41,7 +44,7 @@ export default function SerieSelvatico() {
               fontWeight: 700,
             }}
           >
-            Selvático
+            {title}
           </p>
 
           <p
@@ -52,8 +55,7 @@ export default function SerieSelvatico() {
               fontWeight: 300,
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {text}
           </p>
 
         </div>

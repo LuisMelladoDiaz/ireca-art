@@ -2,6 +2,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import content from "@/data/content.json";
+
+const { title, text } = content.obras.archivoTinta.series.otherworldly;
 
 const images = [
   { src: "/images/archivo_tinta/Otherwordly/Restaurante.png",    alt: "Restaurante" },
@@ -81,12 +84,26 @@ export default function SerieOtherworldly() {
             fontSize: "clamp(1.5rem, 3vw, 3rem)",
           }}
         >
-          Otherwordly
+          {title}
         </p>
       </section>
 
       {/* Cuadrícula de obras */}
       <section className="bg-[#FFF9F2] px-6 md:px-14 py-12 md:py-16">
+        <div className="flex flex-col md:flex-row md:items-end gap-2 md:gap-8 mb-8 md:mb-10">
+          <p
+            className="italic"
+            style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#A11B39", fontWeight: 700 }}
+          >
+            {title}
+          </p>
+          <p
+            className="leading-[1.8] text-[#001D2F]/60 md:pb-1"
+            style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.95rem, 1.3vw, 1.15rem)", fontWeight: 300 }}
+          >
+            {text}
+          </p>
+        </div>
         <div className="columns-1 sm:columns-2 gap-3 space-y-3">
           {images.map(({ src, alt }) => (
             <div key={src} className="break-inside-avoid">

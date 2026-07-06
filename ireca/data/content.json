@@ -16,15 +16,13 @@
   "obras": {
     "archivoEmocional": {
       "title": "Archivo emocional (pictórico)",
+      "intro": [
+        {
+          "text": "El olvido es imparable. No queremos olvidar quién somos ni quién fuimos. Reminiscencia. Suele pintar y guardar objetos que le lleven a algún lugar seguro, lejos del olvido: el olor al mar, a la arena, cartas antiguas, el sonido de las olas el día que nos conocimos. Todo aquello que active la memoria, tanto visual como sensorialmente."
+        }
+        
+      ],
       "sections": {
-        "olvido": {
-          "title": "El olvido es imparable",
-          "text": "El olvido es imparable. No queremos olvidar quién somos ni quién fuimos. Reminiscencia."
-        },
-        "memoria": {
-          "title": "Memoria y refugio",
-          "text": "Suele pintar y guardar objetos que le lleven a algún lugar seguro, lejos del olvido: el olor al mar, a la arena, cartas antiguas, el sonido de las olas el día que nos conocimos. Todo aquello que active la memoria, tanto visual como sensorialmente."
-        },
         "arraigo": {
           "title": "Arraigo",
           "text": "Esta serie de obras busca reflejar la conexión que sentimos con el mar: el deseo de formar parte de él y el deleite que nos lleva a querer echar raíces. En primera instancia el entorno es el protagonista, pero la persona adquiere relevancia al integrarse en él. Busca detener el tiempo y el olvido, pero, dejándose llevar por el movimiento de las olas, encuentra en el mar un lugar de calma y refugio donde habitar."
@@ -40,6 +38,9 @@
         "mencionEspecial": {
           "title": "Mención especial",
           "text": "Obras seleccionadas en concursos nacionales e internacionales, partícipes a su vez de exposiciones colectivas."
+        },
+        "otros": {
+          "title": "Otros"
         }
       }
     },

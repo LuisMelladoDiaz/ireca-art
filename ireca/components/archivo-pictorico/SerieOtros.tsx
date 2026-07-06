@@ -1,11 +1,14 @@
-import Image from "next/image";
+import content from "@/data/content.json";
+import ArtworkImage from "@/components/ArtworkImage";
+
+const { title } = content.obras.archivoEmocional.sections.otros;
+
+const BASE = "/images/archivo_emocional_pictorico";
 
 const images = [
-  { src: "/images/archivo_pictorico/Otros_Cimientos.jpg",           alt: "Cimientos" },
-  { src: "/images/archivo_pictorico/Otros_Hogar.jpg",               alt: "Hogar" },
-  { src: "/images/archivo_pictorico/Otros_Mi_persona_favorita.jpg", alt: "Mi persona favorita" },
-  { src: "/images/archivo_pictorico/Otros_Mini_yo.jpg",             alt: "Mini yo" },
-  { src: "/images/archivo_pictorico/Otros_Primer_carnaval.png",     alt: "Primer carnaval" },
+  { src: `${BASE}/Otros-Mi_persona_favorita.jpg`, alt: "Mi persona favorita", width: 600, height: 777 },
+  { src: `${BASE}/Otros-Mini_yo.jpg`,             alt: "Mini yo",             width: 600, height: 872 },
+  { src: `${BASE}/Otros-Primer_carnaval.png`,     alt: "Primer carnaval",     width: 600, height: 405 },
 ];
 
 export default function SerieOtros() {
@@ -16,21 +19,14 @@ export default function SerieOtros() {
         className="italic mb-10 md:mb-12"
         style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(2rem, 3.5vw, 3rem)", color: "#A11B39", fontWeight: 700 }}
       >
-        Otros
+        {title}
       </p>
 
       {/* Masonry — 2 cols móvil, 3 cols desktop */}
       <div className="columns-2 md:columns-3 gap-3 space-y-3">
-        {images.map(({ src, alt }) => (
-          <div key={src} className="break-inside-avoid">
-            <Image
-              src={src}
-              alt={alt}
-              width={600}
-              height={500}
-              className="w-full h-auto"
-              sizes="(max-width: 768px) 50vw, 33vw"
-            />
+        {images.map((img) => (
+          <div key={img.src} className="break-inside-avoid">
+            <ArtworkImage {...img} className="w-full h-auto" sizes="(max-width: 768px) 50vw, 33vw" />
           </div>
         ))}
       </div>

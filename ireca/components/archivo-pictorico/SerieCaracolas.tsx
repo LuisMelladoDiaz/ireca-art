@@ -1,16 +1,20 @@
-import Image from "next/image";
+import content from "@/data/content.json";
+import ArtworkImage from "@/components/ArtworkImage";
+
+const { title, text } = content.obras.archivoEmocional.sections.caracolas;
+
+const BASE = "/images/archivo_emocional_pictorico/Caracolas";
 
 const images = [
-  { src: "/images/archivo_pictorico/Caracolas_Azul_marino.jpg",               alt: "Azul marino" },
-  { src: "/images/archivo_pictorico/Caracolas_Eco_del_mar.jpg",                alt: "Eco del mar" },
-  { src: "/images/archivo_pictorico/Caracolas_Donde_vivo_hay_caracolas_1.jpg", alt: "Donde vivo hay caracolas I" },
-  { src: "/images/archivo_pictorico/Caracolas_Donde_vivo_hay_caracolas_2.jpg", alt: "Donde vivo hay caracolas II" },
-  
+  { src: `${BASE}/Azul_marino.jpg`,               alt: "Azul marino",               width: 600, height: 600 },
+  { src: `${BASE}/Eco_del_mar.jpg`,                alt: "Eco del mar",               width: 600, height: 1250 },
+  { src: `${BASE}/Donde_vivo_hay_caracolas_1.jpg`, alt: "Donde vivo hay caracolas I",  width: 600, height: 936 },
+  { src: `${BASE}/Donde_vivo_hay_caracolas_2.jpg`, alt: "Donde vivo hay caracolas II", width: 600, height: 900 },
 ];
 
 export default function SerieCaracolas() {
   return (
-    <section className="bg-[#FFF9F2] px-6 md:px-14 py-16 md:py-20">
+    <section className="bg-[#FFF9F2] px-6 md:px-14 py-16 md:py-20 border-t border-[#001D2F]/8">
       <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
 
         {/* Texto */}
@@ -19,29 +23,21 @@ export default function SerieCaracolas() {
             className="italic"
             style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(2rem, 3.5vw, 3rem)", color: "#A11B39", fontWeight: 700 }}
           >
-            Caracolas
+            {title}
           </p>
           <p
             className="leading-[1.8] text-[#001D2F]/60"
             style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", fontWeight: 300 }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna.
+            {text}
           </p>
         </div>
 
         {/* Mosaico sin huecos */}
         <div className="flex-1 columns-2 gap-3 space-y-3">
-          {images.map(({ src, alt }) => (
-            <div key={src} className="break-inside-avoid">
-              <Image
-                src={src}
-                alt={alt}
-                width={600}
-                height={500}
-                className="w-full h-auto"
-                sizes="(max-width: 768px) 50vw, 35vw"
-              />
+          {images.map((img) => (
+            <div key={img.src} className="break-inside-avoid">
+              <ArtworkImage {...img} description={text} className="w-full h-auto" sizes="(max-width: 768px) 50vw, 35vw" />
             </div>
           ))}
         </div>

@@ -1,8 +1,9 @@
-import SerieCaracolas   from "./archivo-pictorico/SerieCaracolas";
-import SerieEcosDelMar  from "./archivo-pictorico/SerieEcosDelMar";
-import SerieElementos   from "./archivo-pictorico/SerieElementos";
-import SerieInstantes   from "./archivo-pictorico/SerieInstantes";
-import SerieOtros       from "./archivo-pictorico/SerieOtros";
+import ArchivoEmocionalIntro from "./archivo-pictorico/ArchivoEmocionalIntro";
+import SerieArraigo          from "./archivo-pictorico/SerieArraigo";
+import SerieCaracolas        from "./archivo-pictorico/SerieCaracolas";
+import SeriePaisaje          from "./archivo-pictorico/SeriePaisaje";
+import SerieMencionEspecial  from "./archivo-pictorico/SerieMencionEspecial";
+import SerieOtros            from "./archivo-pictorico/SerieOtros";
 
 export default function ArchivoPlctoricoSection() {
   return (
@@ -17,10 +18,11 @@ export default function ArchivoPlctoricoSection() {
         Archivo Pictórico
       </h2>
 
+      <ArchivoEmocionalIntro />
+      <SerieArraigo />
       <SerieCaracolas />
-      <SerieEcosDelMar />
-      <SerieElementos />
-      <SerieInstantes />
+      <SeriePaisaje />
+      <SerieMencionEspecial />
       <SerieOtros />
     </div>
   );
