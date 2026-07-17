@@ -1,15 +1,10 @@
 import content from "@/data/content.json";
+import { getArtworksBySection } from "@/data/artworks";
 import ArtworkImage from "@/components/ArtworkImage";
 
 const { title } = content.obras.archivoEmocional.sections.otros;
 
-const BASE = "/images/archivo_emocional_pictorico";
-
-const images = [
-  { src: `${BASE}/Otros-Mi_persona_favorita.jpg`, alt: "Mi persona favorita", width: 600, height: 777 },
-  { src: `${BASE}/Otros-Mini_yo.jpg`,             alt: "Mini yo",             width: 600, height: 872 },
-  { src: `${BASE}/Otros-Primer_carnaval.png`,     alt: "Primer carnaval",     width: 600, height: 405 },
-];
+const images = getArtworksBySection("otros");
 
 export default function SerieOtros() {
   return (

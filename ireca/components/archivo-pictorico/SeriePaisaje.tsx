@@ -1,25 +1,14 @@
 import content from "@/data/content.json";
+import { getArtwork } from "@/data/artworks";
 import ArtworkImage from "@/components/ArtworkImage";
 
 const { title, text } = content.obras.archivoEmocional.sections.paisaje;
 
-const BASE = "/images/archivo_emocional_pictorico/Paisaje";
+const elementos = ["agua", "aire", "fuego", "tierra", "luna"].map((slug) => getArtwork(slug)!);
 
-const elementos = [
-  { src: `${BASE}/Agua.jpg`,   alt: "Agua",   width: 500, height: 688 },
-  { src: `${BASE}/Aire.jpg`,   alt: "Aire",   width: 500, height: 692 },
-  { src: `${BASE}/Fuego.png`,  alt: "Fuego",  width: 500, height: 682 },
-  { src: `${BASE}/Tierra.jpg`, alt: "Tierra", width: 500, height: 685 },
-  { src: `${BASE}/Luna.jpg`,   alt: "Luna",   width: 500, height: 752 },
-];
-
-const instantes = [
-  { src: `${BASE}/Instantes_1.png`, alt: "Instante I",   width: 500, height: 457 },
-  { src: `${BASE}/Instantes_2.png`, alt: "Instante II",  width: 500, height: 457 },
-  { src: `${BASE}/Instantes_3.png`, alt: "Instante III", width: 500, height: 457 },
-  { src: `${BASE}/Instantes_4.png`, alt: "Instante IV",  width: 500, height: 457 },
-  { src: `${BASE}/Instantes_5.png`, alt: "Instante V",   width: 500, height: 457 },
-];
+const instantes = ["instante-1", "instante-2", "instante-3", "instante-4", "instante-5"].map(
+  (slug) => getArtwork(slug)!
+);
 
 export default function SeriePaisaje() {
   return (
@@ -45,7 +34,7 @@ export default function SeriePaisaje() {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 mb-10 md:mb-14">
         {elementos.map((img) => (
           <div key={img.src} className="flex flex-col gap-2">
-            <ArtworkImage {...img} description={text} sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 20vw" />
+            <ArtworkImage {...img} sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 20vw" />
             <p
               className="text-[#001D2F]/40 tracking-[0.18em] uppercase text-xs"
               style={{ fontFamily: "var(--font-lato)", fontWeight: 700 }}
@@ -62,7 +51,6 @@ export default function SeriePaisaje() {
           <ArtworkImage
             key={img.src}
             {...img}
-            description={text}
             sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 20vw"
           />
         ))}

@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useRef } from "react";
-import Image from "next/image";
+import ArtworkImage from "@/components/ArtworkImage";
 
 interface CarouselImage {
   src: string;
   alt: string;
+  width: number;
+  height: number;
 }
 
 interface SeriesCarouselProps {
@@ -42,13 +44,14 @@ export default function SeriesCarousel({ images, perPage = 2 }: SeriesCarouselPr
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {visible.map(({ src, alt }) => (
+        {visible.map(({ src, alt, width, height }) => (
           <div key={src} className="relative aspect-[4/3] bg-[#e8e4dc]">
-            <Image
+            <ArtworkImage
               src={src}
               alt={alt}
+              width={width}
+              height={height}
               fill
-              className="object-cover"
               sizes={`(max-width: 768px) 100vw, ${Math.round(100 / perPage)}vw`}
             />
           </div>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ArtworkImage from "@/components/ArtworkImage";
 import content from "@/data/content.json";
 
 const { title, text } = content.obras.archivoTinta.series.llaves;
@@ -31,11 +31,11 @@ export default function SerieLlaves() {
           >
             {text}
           </p>
-          <Image
+          <ArtworkImage
             src="/images/archivo_tinta/Llaves/Llave_3.jpg"
             alt="Llaves — cerradura"
             width={600}
-            height={800}
+            height={984}
             className="w-full h-auto"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
@@ -43,11 +43,11 @@ export default function SerieLlaves() {
 
         {/* Derecha 2/3: edificio a altura natural */}
         <div className="flex-1">
-          <Image
+          <ArtworkImage
             src="/images/archivo_tinta/Llaves/Llave_1.jpg"
             alt="Llaves — edificio"
             width={1200}
-            height={900}
+            height={1686}
             className="w-full h-auto"
             sizes="(max-width: 768px) 100vw, 66vw"
           />

@@ -1,29 +1,21 @@
 import content from "@/data/content.json";
+import { getArtwork } from "@/data/artworks";
 import ArtworkImage from "@/components/ArtworkImage";
 
 const { title, text } = content.obras.archivoEmocional.sections.mencionEspecial;
 
-const BASE = "/images/archivo_emocional_pictorico/Mención especial";
-
 const obras = [
   {
-    featured: { src: `${BASE}/Camaleon_chipionero.JPG`, alt: "Camaleón chipionero", width: 700, height: 1050 },
-    expo: [
-      { src: `${BASE}/expo_camaleon.jpg`, alt: "Exposición — Camaleón chipionero", width: 700, height: 1556 },
-      { src: `${BASE}/expo_camaleon(1).jpg`, alt: "Exposición — Camaleón chipionero", width: 700, height: 278 },
-      { src: `${BASE}/expo_camaleon (1).jpg`, alt: "Exposición — Camaleón chipionero", width: 700, height: 900 },
-    ],
+    featured: getArtwork("camaleon-chipionero")!,
+    expo: ["expo-camaleon-1", "expo-camaleon-2", "expo-camaleon-3"].map((slug) => getArtwork(slug)!),
   },
   {
-    featured: { src: `${BASE}/Dama_de_los_mares.JPG`, alt: "Dama de los mares", width: 700, height: 980 },
-    expo: [{ src: `${BASE}/expo_dama.jpg`, alt: "Exposición — Dama de los mares", width: 700, height: 1245 }],
+    featured: getArtwork("dama-de-los-mares")!,
+    expo: ["expo-dama"].map((slug) => getArtwork(slug)!),
   },
   {
-    featured: { src: `${BASE}/Hogar.jpg`, alt: "Hogar", width: 700, height: 494 },
-    expo: [
-      { src: `${BASE}/expo_hogar.JPEG`, alt: "Exposición — Hogar", width: 700, height: 933 },
-      { src: `${BASE}/expo_hogar(1).JPEG`, alt: "Exposición — Hogar", width: 700, height: 1244 },
-    ],
+    featured: getArtwork("hogar")!,
+    expo: ["expo-hogar-1", "expo-hogar-2"].map((slug) => getArtwork(slug)!),
   },
 ];
 
@@ -52,11 +44,11 @@ export default function SerieMencionEspecial() {
         {obras.map(({ featured, expo }) => (
           <div key={featured.src} className="flex gap-3 h-40 sm:h-48 md:h-56">
             <div className="flex-[1.6] h-full">
-              <ArtworkImage {...featured} description={text} fill sizes="(max-width: 768px) 40vw, 22vw" />
+              <ArtworkImage {...featured} fill sizes="(max-width: 768px) 40vw, 22vw" />
             </div>
             {expo.map((img, i) => (
               <div key={img.src + i} className="flex-1 h-full">
-                <ArtworkImage {...img} description={text} fill sizes="(max-width: 768px) 25vw, 14vw" />
+                <ArtworkImage {...img} fill sizes="(max-width: 768px) 25vw, 14vw" />
               </div>
             ))}
           </div>

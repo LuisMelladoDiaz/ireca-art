@@ -8,19 +8,18 @@ type Props = {
   alt: string;
   width: number;
   height: number;
-  description?: string;
   fill?: boolean;
   className?: string;
   sizes?: string;
 };
 
-export default function ArtworkImage({ src, alt, width, height, description, fill, className, sizes }: Props) {
+export default function ArtworkImage({ src, alt, width, height, fill, className, sizes }: Props) {
   const { open } = useLightbox();
 
   return (
     <button
       type="button"
-      onClick={() => open({ src, alt, width, height, description })}
+      onClick={() => open({ src, alt, width, height })}
       className="group relative block w-full h-full cursor-zoom-in overflow-hidden text-left"
       aria-label={`Ver «${alt}» en grande`}
     >

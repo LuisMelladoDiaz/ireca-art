@@ -8,7 +8,6 @@ export type Artwork = {
   alt: string;
   width: number;
   height: number;
-  description?: string;
 };
 
 type LightboxContextValue = {
@@ -47,7 +46,7 @@ export function LightboxProvider({ children }: { children: React.ReactNode }) {
 
       {artwork && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-[#001D2F]/92 backdrop-blur-sm px-4 py-10 md:px-12 md:py-16"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#001D2F]/95 p-4 md:p-10"
           onClick={close}
           role="dialog"
           aria-modal="true"
@@ -64,39 +63,15 @@ export function LightboxProvider({ children }: { children: React.ReactNode }) {
             </svg>
           </button>
 
-          <div
-            className="flex flex-col md:flex-row gap-6 md:gap-10 max-w-6xl w-full max-h-full"
+          <Image
+            src={artwork.src}
+            alt={artwork.alt}
+            width={artwork.width}
+            height={artwork.height}
+            sizes="95vw"
+            className="w-auto h-auto max-w-full max-h-full object-contain"
             onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex-1 min-h-0 flex items-center justify-center">
-              <Image
-                src={artwork.src}
-                alt={artwork.alt}
-                width={artwork.width}
-                height={artwork.height}
-                sizes="90vw"
-                className="w-auto h-auto max-w-full object-contain"
-                style={{ maxHeight: "78vh" }}
-              />
-            </div>
-
-            <div className="md:w-64 shrink-0 flex flex-col gap-3">
-              <p
-                className="italic text-white"
-                style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(1.3rem, 2vw, 1.7rem)", fontWeight: 700 }}
-              >
-                {artwork.alt}
-              </p>
-              {artwork.description && (
-                <p
-                  className="leading-[1.8] text-white/65"
-                  style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.9rem, 1.1vw, 1rem)", fontWeight: 300 }}
-                >
-                  {artwork.description}
-                </p>
-              )}
-            </div>
-          </div>
+          />
         </div>
       )}
     </LightboxContext.Provider>

@@ -2,44 +2,52 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const links = [
-  { label: "Statement",          href: "#statement" },
-  { label: "Archivo Pictórico",  href: "#archivo-pictorico" },
-  { label: "Archivo de Tinta",   href: "#obras" },
-  { label: "Sobre mí",           href: "#sobre-mi" },
-  { label: "Contacto",           href: "#contacto" },
+  { label: "Statement",         href: "/#statement" },
+  { label: "Archivo Pictórico", href: "/archivo-pictorico" },
+  { label: "Archivo de Tinta",  href: "/archivo-tinta" },
+  { label: "Sobre mí",          href: "/#sobre-mi" },
+  { label: "Contacto",          href: "/#contacto" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 bg-[#FFF9F2] border-b border-[#001D2F]/10">
 
       {/* Top bar */}
       <div className="flex items-center justify-between px-8 md:px-14 py-5">
-        <span
+        <Link
+          href="/"
           className="text-[#001D2F]"
           style={{ fontFamily: "var(--font-belleza)", fontSize: "1.9rem" }}
         >
           ireca
-        </span>
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center">
-          {links.map(({ label, href }, i) => (
-            <div key={href} className="flex items-center">
-              {i > 0 && <span className="mx-4 block h-px w-5 bg-[#001D2F]/40" />}
-              <Link
-                href={href}
-                style={{ fontFamily: "var(--font-barlow)" }}
-                className="text-[0.75rem] tracking-[0.22em] uppercase text-[#001D2F]/70 transition-colors hover:text-[#001D2F]"
-              >
-                {label}
-              </Link>
-            </div>
-          ))}
+          {links.map(({ label, href }, i) => {
+            const active = pathname === href;
+            return (
+              <div key={href} className="flex items-center">
+                {i > 0 && <span className="mx-4 block h-px w-5 bg-[#001D2F]/40" />}
+                <Link
+                  href={href}
+                  style={{ fontFamily: "var(--font-barlow)" }}
+                  className={`text-[0.75rem] tracking-[0.22em] uppercase transition-colors hover:text-[#001D2F] ${
+                    active ? "text-[#001D2F]" : "text-[#001D2F]/70"
+                  }`}
+                >
+                  {label}
+                </Link>
+              </div>
+            );
+          })}
         </div>
 
         {/* Mobile — hamburger / close */}
@@ -66,17 +74,22 @@ export default function Navbar() {
       {/* Mobile menu — dropdown */}
       {open && (
         <div className="md:hidden flex flex-col px-8 pb-7 pt-2 gap-6 border-t border-[#001D2F]/10">
-          {links.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              style={{ fontFamily: "var(--font-barlow)" }}
-              className="text-[0.85rem] tracking-[0.22em] uppercase text-[#001D2F]/70 hover:text-[#001D2F] transition-colors"
-              onClick={() => setOpen(false)}
-            >
-              {label}
-            </Link>
-          ))}
+          {links.map(({ label, href }) => {
+            const active = pathname === href;
+            return (
+              <Link
+                key={href}
+                href={href}
+                style={{ fontFamily: "var(--font-barlow)" }}
+                className={`text-[0.85rem] tracking-[0.22em] uppercase transition-colors hover:text-[#001D2F] ${
+                  active ? "text-[#001D2F]" : "text-[#001D2F]/70"
+                }`}
+                onClick={() => setOpen(false)}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </div>
       )}
     </nav>

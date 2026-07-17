@@ -1,16 +1,10 @@
 import content from "@/data/content.json";
+import { getArtworksBySection } from "@/data/artworks";
 import ArtworkImage from "@/components/ArtworkImage";
 
 const { title, text } = content.obras.archivoEmocional.sections.caracolas;
 
-const BASE = "/images/archivo_emocional_pictorico/Caracolas";
-
-const images = [
-  { src: `${BASE}/Azul_marino.jpg`,               alt: "Azul marino",               width: 600, height: 600 },
-  { src: `${BASE}/Eco_del_mar.jpg`,                alt: "Eco del mar",               width: 600, height: 1250 },
-  { src: `${BASE}/Donde_vivo_hay_caracolas_1.jpg`, alt: "Donde vivo hay caracolas I",  width: 600, height: 936 },
-  { src: `${BASE}/Donde_vivo_hay_caracolas_2.jpg`, alt: "Donde vivo hay caracolas II", width: 600, height: 900 },
-];
+const images = getArtworksBySection("caracolas");
 
 export default function SerieCaracolas() {
   return (
@@ -37,7 +31,7 @@ export default function SerieCaracolas() {
         <div className="flex-1 columns-2 gap-3 space-y-3">
           {images.map((img) => (
             <div key={img.src} className="break-inside-avoid">
-              <ArtworkImage {...img} description={text} className="w-full h-auto" sizes="(max-width: 768px) 50vw, 35vw" />
+              <ArtworkImage {...img} className="w-full h-auto" sizes="(max-width: 768px) 50vw, 35vw" />
             </div>
           ))}
         </div>

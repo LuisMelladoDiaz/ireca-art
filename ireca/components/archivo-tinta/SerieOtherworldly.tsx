@@ -2,15 +2,16 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import ArtworkImage from "@/components/ArtworkImage";
 import content from "@/data/content.json";
 
 const { title, text } = content.obras.archivoTinta.series.otherworldly;
 
 const images = [
-  { src: "/images/archivo_tinta/Otherwordly/Restaurante.png",    alt: "Restaurante" },
-  { src: "/images/archivo_tinta/Otherwordly/Escena_final_1.png", alt: "Escena final 1" },
-  { src: "/images/archivo_tinta/Otherwordly/Escena_inicio.png",  alt: "Escena inicio" },
-  { src: "/images/archivo_tinta/Otherwordly/Callejon.png",       alt: "Callejón" },
+  { src: "/images/archivo_tinta/Otherwordly/Restaurante.png",    alt: "Restaurante",    width: 800, height: 453 },
+  { src: "/images/archivo_tinta/Otherwordly/Escena_final_1.png", alt: "Escena final 1", width: 800, height: 451 },
+  { src: "/images/archivo_tinta/Otherwordly/Escena_inicio.png",  alt: "Escena inicio",  width: 800, height: 449 },
+  { src: "/images/archivo_tinta/Otherwordly/Callejon.png",       alt: "Callejón",       width: 800, height: 453 },
 ];
 
 function IconPlay() {
@@ -70,9 +71,11 @@ export default function SerieOtherworldly() {
     <>
       {/* Full bleed — Escena final */}
       <section className="relative w-full h-screen border-t border-[#001D2F]/8">
-        <Image
+        <ArtworkImage
           src="/images/archivo_tinta/Otherwordly/Escena_final_1.png"
           alt="Otherwordly — escena final"
+          width={1200}
+          height={676}
           fill
           className="object-cover object-center"
           sizes="100vw"
@@ -105,16 +108,9 @@ export default function SerieOtherworldly() {
           </p>
         </div>
         <div className="columns-1 sm:columns-2 gap-3 space-y-3">
-          {images.map(({ src, alt }) => (
-            <div key={src} className="break-inside-avoid">
-              <Image
-                src={src}
-                alt={alt}
-                width={800}
-                height={600}
-                className="w-full h-auto"
-                sizes="(max-width: 640px) 100vw, 50vw"
-              />
+          {images.map((img) => (
+            <div key={img.src} className="break-inside-avoid">
+              <ArtworkImage {...img} className="w-full h-auto" sizes="(max-width: 640px) 100vw, 50vw" />
             </div>
           ))}
         </div>
@@ -183,9 +179,11 @@ export default function SerieOtherworldly() {
 
       {/* Full bleed — Menu */}
       <section className="relative w-full h-screen">
-        <Image
+        <ArtworkImage
           src="/images/archivo_tinta/Otherwordly/Menu.PNG"
-          alt="Otherwordly — portada"
+          alt="Otherwordly — menú"
+          width={1200}
+          height={679}
           fill
           className="object-cover object-center"
           sizes="100vw"

@@ -1,16 +1,16 @@
 "use client";
 
-import Image from "next/image";
+import ArtworkImage from "@/components/ArtworkImage";
 import SeriesCarousel from "@/components/SeriesCarousel";
 import content from "@/data/content.json";
 
 const { title, text } = content.obras.archivoTinta.series.selvatico;
 
 const images = [
-  { src: "/images/archivo_tinta/Selvatico/Iguana.png",    alt: "Iguana" },
-  { src: "/images/archivo_tinta/Selvatico/Serpiente.png", alt: "Serpiente" },
-  { src: "/images/archivo_tinta/Selvatico/Tortuga.png",   alt: "Tortuga" },
-  { src: "/images/archivo_tinta/Selvatico/Piraña.png",    alt: "Piraña" },
+  { src: "/images/archivo_tinta/Selvatico/Iguana.png",    alt: "Iguana",    width: 600, height: 600 },
+  { src: "/images/archivo_tinta/Selvatico/Serpiente.png", alt: "Serpiente", width: 600, height: 600 },
+  { src: "/images/archivo_tinta/Selvatico/Tortuga.png",   alt: "Tortuga",   width: 600, height: 600 },
+  { src: "/images/archivo_tinta/Selvatico/Piraña.png",    alt: "Piraña",    width: 600, height: 600 },
 ];
 
 export default function SerieSelvatico() {
@@ -20,11 +20,11 @@ export default function SerieSelvatico() {
 
         {/* Izquierda 2/3: imagen estática grande */}
         <div className="w-full md:w-[66%]">
-          <Image
+          <ArtworkImage
             src="/images/archivo_tinta/Llaves/Llave_2.jpg"
             alt="Selvático — obra destacada"
             width={1200}
-            height={900}
+            height={843}
             className="w-full h-auto"
             sizes="(max-width: 768px) 100vw, 66vw"
           />

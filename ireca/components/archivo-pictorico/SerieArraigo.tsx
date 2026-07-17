@@ -1,16 +1,15 @@
 import content from "@/data/content.json";
+import { getArtwork } from "@/data/artworks";
 import ArtworkImage from "@/components/ArtworkImage";
 
 const { title, text } = content.obras.archivoEmocional.sections.arraigo;
 
-const BASE = "/images/archivo_emocional_pictorico/Arraigo";
-
-const arraigo         = { src: `${BASE}/arraigo.JPG`,                 alt: "Arraigo",                width: 700, height: 694 };
-const cimientos       = { src: `${BASE}/Cimientos.jpg`,               alt: "Cimientos",              width: 800, height: 1127 };
-const quien           = { src: `${BASE}/Quien.jpg`,                   alt: "Quién",                  width: 700, height: 945 };
-const agostoOAbril    = { src: `${BASE}/Agosto_o_abril.jpg`,          alt: "Agosto o abril",         width: 900, height: 722 };
-const aquellosDias    = { src: `${BASE}/Aquellos_dias_de_verano.JPG`, alt: "Aquellos días de verano", width: 700, height: 949 };
-const chipionaSevilla = { src: `${BASE}/chipiona_y_sevilla.jpg`,      alt: "Chipiona y Sevilla",     width: 700, height: 1023 };
+const arraigo         = getArtwork("arraigo")!;
+const cimientos       = getArtwork("cimientos")!;
+const quien           = getArtwork("quien")!;
+const agostoOAbril    = getArtwork("agosto-o-abril")!;
+const aquellosDias    = getArtwork("aquellos-dias-de-verano")!;
+const chipionaSevilla = getArtwork("chipiona-y-sevilla")!;
 
 export default function SerieArraigo() {
   return (
@@ -39,15 +38,15 @@ export default function SerieArraigo() {
           style={{ gridAutoRows: "clamp(100px, 12vw, 220px)" }}
         >
           <div className="col-span-2 row-span-2">
-            <ArtworkImage {...arraigo} description={text} fill sizes="(max-width: 768px) 66vw, 33vw" />
+            <ArtworkImage {...arraigo} fill sizes="(max-width: 768px) 66vw, 33vw" />
           </div>
-          <ArtworkImage {...cimientos} description={text} fill sizes="(max-width: 768px) 33vw, 16vw" />
-          <ArtworkImage {...quien} description={text} fill sizes="(max-width: 768px) 33vw, 16vw" />
+          <ArtworkImage {...cimientos} fill sizes="(max-width: 768px) 33vw, 16vw" />
+          <ArtworkImage {...quien} fill sizes="(max-width: 768px) 33vw, 16vw" />
           <div className="col-span-2">
-            <ArtworkImage {...agostoOAbril} description={text} fill sizes="(max-width: 768px) 66vw, 33vw" />
+            <ArtworkImage {...agostoOAbril} fill sizes="(max-width: 768px) 66vw, 33vw" />
           </div>
-          <ArtworkImage {...aquellosDias} description={text} fill sizes="(max-width: 768px) 33vw, 16vw" />
-          <ArtworkImage {...chipionaSevilla} description={text} fill sizes="(max-width: 768px) 33vw, 16vw" />
+          <ArtworkImage {...aquellosDias} fill sizes="(max-width: 768px) 33vw, 16vw" />
+          <ArtworkImage {...chipionaSevilla} fill sizes="(max-width: 768px) 33vw, 16vw" />
         </div>
 
       </div>
