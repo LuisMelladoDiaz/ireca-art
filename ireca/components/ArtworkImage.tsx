@@ -20,7 +20,7 @@ export default function ArtworkImage({ src, alt, width, height, fill, className,
     <button
       type="button"
       onClick={() => open({ src, alt, width, height })}
-      className="group relative block w-full h-full cursor-zoom-in overflow-hidden text-left"
+      className="group relative block w-full h-full cursor-pointer overflow-hidden text-left"
       aria-label={`Ver «${alt}» en grande`}
     >
       {fill ? (
@@ -28,7 +28,10 @@ export default function ArtworkImage({ src, alt, width, height, fill, className,
       ) : (
         <Image src={src} alt={alt} width={width} height={height} sizes={sizes} className={className ?? "w-full h-auto"} />
       )}
-      <span className="absolute inset-0 bg-[#001D2F]/0 group-hover:bg-[#001D2F]/10 transition-colors pointer-events-none" />
+      <span className="absolute inset-0 bg-[#001D2F]/0 group-hover:bg-[#001D2F]/40 transition-colors pointer-events-none" />
+      <span className="absolute inset-0 flex items-center justify-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        <span className="text-white text-lg font-medium">{alt}</span>
+      </span>
     </button>
   );
 }

@@ -23,7 +23,6 @@ export default function ArchivoPlctoricoSection() {
       <SerieCaracolas />
       <SeriePaisaje />
       <SerieMencionEspecial />
-      <SerieOtros />
     </div>
   );
 }
