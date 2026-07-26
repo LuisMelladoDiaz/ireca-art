@@ -6,12 +6,10 @@ import { getArtwork } from "@/data/artworks";
 const pictorico = content.obras.archivoEmocional;
 const tinta = content.obras.archivoTinta;
 
-const pictoricoImages = ["arraigo", "cimientos", "camaleon-chipionero"].map((slug) => getArtwork(slug)!);
+const pictoricoImages = ["arraigo", "fuego", "agosto-o-abril", "reli-abu"].map((slug) => getArtwork(slug)!);
 
 const tintaImages = [
-  { src: "/images/archivo_tinta/Llaves/Llave_1.jpg",            alt: "Llaves",        width: 500, height: 703 },
-  { src: "/images/archivo_tinta/Selvatico/Iguana.png",          alt: "Selvático",     width: 500, height: 500 },
-  { src: "/images/archivo_tinta/Otherwordly/Escena_final_1.png", alt: "Otherworldly", width: 500, height: 282 },
+  { src: "/images/archivo_tinta/Llaves/Llave_1.jpg", alt: "Llaves", width: 500, height: 703 },
 ];
 
 type PreviewImage = { src: string; alt: string; width: number; height: number };
@@ -33,14 +31,14 @@ function ArchiveCard({
         {images.map((img, i) => (
           <div
             key={img.src}
-            className={`relative flex-1 aspect-3/4 overflow-hidden ${i === 0 ? "" : "hidden sm:block"}`}
+            className={`relative flex-1 aspect-square overflow-hidden ${i === 0 ? "" : "hidden md:block"}`}
           >
             <Image
               src={img.src}
               alt={img.alt}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
-              sizes="(max-width: 768px) 30vw, 16vw"
+              sizes="(max-width: 768px) 40vw, 16vw"
             />
           </div>
         ))}
@@ -73,14 +71,19 @@ function ArchiveCard({
 export default function ArchivosPreview() {
   return (
     <section className="bg-[#FFF9F2] px-6 md:px-14 py-16 md:py-24 border-t border-[#001D2F]/8">
-      <div className="grid md:grid-cols-2 gap-14 md:gap-12">
-        <ArchiveCard
-          title={pictorico.title}
-          text={pictorico.intro[0].text}
-          images={pictoricoImages}
-          href="/archivo-pictorico"
-        />
-        <ArchiveCard title={tinta.title} text={tinta.intro} images={tintaImages} href="/archivo-tinta" />
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-14 md:gap-3">
+        <div className="md:col-span-4">
+          <ArchiveCard
+            title={pictorico.title}
+            text={pictorico.intro[0].text}
+            images={pictoricoImages}
+            href="/archivo-pictorico"
+          />
+        </div>
+        <div className="hidden md:block md:col-span-1" aria-hidden="true" />
+        <div className="md:col-span-1">
+          <ArchiveCard title={tinta.title} text={tinta.intro} images={tintaImages} href="/archivo-tinta" />
+        </div>
       </div>
     </section>
   );
