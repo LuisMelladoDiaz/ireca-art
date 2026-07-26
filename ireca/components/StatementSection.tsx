@@ -8,32 +8,32 @@ export default function StatementSection() {
   return (
     <section id="statement" className="min-h-screen bg-[#FFF9F2] flex flex-col md:flex-row items-stretch scroll-mt-16">
 
-      {/* Left: título (desktop) + imagen */}
-      <div className="w-full md:w-[45%] flex flex-col px-0 md:px-0 md:pt-24 md:pb-10 order-3 md:order-none">
+      {/* Left: título (desktop) + imagen — oculto en móvil */}
+      <div className="hidden md:flex md:w-[45%] md:flex-col md:pt-24 md:pb-10">
 
         {/* Título - solo desktop */}
         <h2
-          className="hidden md:block text-[#001D2F] leading-none text-right px-10"
+          className="text-[#001D2F] leading-none text-right px-10"
           style={{ fontFamily: "var(--font-belleza)", fontSize: "clamp(2.5rem, 7.5vw, 7rem)" }}
         >
           statement
         </h2>
 
         {/* Imagen */}
-        <div className="relative flex-1 min-h-[280px] md:min-h-[320px]">
+        <div className="relative flex-1 min-h-[320px]">
           <Image
             src="/images/Statement.png"
             alt="Paleta de pintura"
             fill
             className="object-contain object-left-top"
-            sizes="(max-width: 768px) 100vw, 45vw"
+            sizes="45vw"
           />
         </div>
 
       </div>
 
       {/* Right: título (mobile) + texto */}
-      <div className="flex-1 flex flex-col md:justify-center px-10 md:px-16 pt-8 pb-10 md:py-24 order-2 md:order-none">
+      <div className="flex-1 flex flex-col md:justify-center px-10 md:px-16 pt-8 pb-10 md:py-24">
 
         {/* Título - solo mobile */}
         <h2

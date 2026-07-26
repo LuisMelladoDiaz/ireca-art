@@ -8,7 +8,7 @@ export default function Footer() {
       id="contacto"
       className="bg-[#FFF9F2] border-t border-[#001D2F]/15 px-8 md:px-14 py-12 md:py-16"
     >
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
+      <div className="flex flex-col items-center text-center md:flex-row md:items-end md:text-left justify-between gap-10">
 
         {/* Marca */}
         <div>
@@ -27,7 +27,7 @@ export default function Footer() {
         </div>
 
         {/* Contacto */}
-        <div className="flex flex-col gap-3 md:items-end">
+        <div className="flex flex-col items-center gap-3 md:items-end">
           <a
             href={`mailto:${email}`}
             className="text-[#001D2F]/65 hover:text-[#001D2F] transition-colors"
