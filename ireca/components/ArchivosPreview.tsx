@@ -110,7 +110,7 @@ function ArchiveCard({
         className="col-start-2 row-start-3 w-fit text-[#001D2F]/70 tracking-[0.18em] uppercase text-xs hover:text-[#001D2F] transition-colors md:order-4"
         style={{ fontFamily: "var(--font-lato)", fontWeight: 700 }}
       >
-        Ver archivo →
+        Ver obras →
       </Link>
     </div>
   );

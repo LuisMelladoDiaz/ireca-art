@@ -1,5 +1,6 @@
 import Image from "next/image";
 import content from "@/data/content.json";
+import ExpandableBio from "@/components/ExpandableBio";
 
 const paragraphs = content.statement.text.split("\n\n");
 
@@ -44,19 +45,15 @@ export default function StatementSection() {
 
         {/* Texto */}
         <div className="md:p-12 w-full flex flex-col gap-5 text-justify">
-          {paragraphs.map((p, i) => (
-            <p
-              key={i}
-              className="leading-[1.9] text-[#001D2F]/70"
-              style={{
-                fontFamily: "var(--font-barlow)",
-                fontSize: "clamp(1rem, 1.25vw, 1.2rem)",
-                fontWeight: 400,
-              }}
-            >
-              {p}
-            </p>
-          ))}
+          <ExpandableBio
+            paragraphs={paragraphs}
+            paragraphClassName="leading-[1.9] text-[#001D2F]/70"
+            paragraphStyle={{
+              fontFamily: "var(--font-barlow)",
+              fontSize: "clamp(1rem, 1.25vw, 1.2rem)",
+              fontWeight: 400,
+            }}
+          />
         </div>
 
       </div>
