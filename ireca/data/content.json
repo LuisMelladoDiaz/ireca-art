@@ -15,7 +15,8 @@
   },
   "obras": {
     "archivoEmocional": {
-      "title": "Archivo emocional (pictórico)",
+      "title": "Archivo Emocional Pictórico",
+      "previewText": "El olvido es imparable. No queremos olvidar quién somos ni quién fuimos. Reminiscencia. Pinta y guarda objetos que la devuelven a un lugar seguro, lejos del olvido: el olor al mar, la arena, cartas antiguas, el sonido de las olas el día que nos conocimos. Todo aquello que active la memoria, tanto visual como sensorialmente.",
       "intro": [
         {
           "text": "El olvido es imparable. No queremos olvidar quién somos ni quién fuimos. Reminiscencia. Suele pintar y guardar objetos que le lleven a algún lugar seguro, lejos del olvido: el olor al mar, a la arena, cartas antiguas, el sonido de las olas el día que nos conocimos. Todo aquello que active la memoria, tanto visual como sensorialmente."
@@ -46,7 +47,8 @@
       }
     },
     "archivoTinta": {
-      "title": "Archivo de tinta",
+      "title": "Archivo de Tinta",
+      "previewText": "Me expreso emocionalmente a través de la tinta china. La línea tiene intención, el pulso habla.",
       "intro": "Me expreso emocionalmente a través de la tinta china. La línea tiene intención. No solo el grosor, el pulso habla, deja respirar, intuye. Es un trabajo que me ayuda a reflexionar, me permite comunicar un mensaje con menos recursos que otras técnicas como la pintura. Cambia la perspectiva que tenemos al trabajar mayoritariamente con el color.",
       "series": {
         "llaves": {
