@@ -86,7 +86,7 @@ export default function SerieArraigo() {
             <ArtworkImage {...aquellosDias} fill className="object-cover" sizes={sidesSizes} quality={100} offsetX={50} offsetY={50} />
           </div>
           <div>
-            <ArtworkImage {...arraigo} fill className="object-cover" sizes={centerColSizes} quality={100} offsetX={50} offsetY={50} />
+            <ArtworkImage {...arraigo} fill className="object-cover" sizes={centerColSizes} quality={100} offsetX={50} offsetY={0} />
           </div>
           <div>
             <ArtworkImage {...quien} fill className="object-cover" sizes={sidesSizes} quality={100} offsetX={50} offsetY={50} />

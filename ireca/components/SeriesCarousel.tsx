@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ArtworkImage from "@/components/ArtworkImage";
 
 interface CarouselImage {
@@ -13,9 +13,11 @@ interface CarouselImage {
 interface SeriesCarouselProps {
   images: CarouselImage[];
   perPage?: number;
+  /** Si se indica, avanza de página sola cada X ms (bucle) */
+  autoAdvanceMs?: number;
 }
 
-export default function SeriesCarousel({ images, perPage = 2 }: SeriesCarouselProps) {
+export default function SeriesCarousel({ images, perPage = 2, autoAdvanceMs }: SeriesCarouselProps) {
   const [page, setPage] = useState(0);
   const totalPages = Math.ceil(images.length / perPage);
   const visible = images.slice(page * perPage, page * perPage + perPage);
@@ -23,6 +25,14 @@ export default function SeriesCarousel({ images, perPage = 2 }: SeriesCarouselPr
 
   const prev = () => setPage(p => Math.max(0, p - 1));
   const next = () => setPage(p => Math.min(totalPages - 1, p + 1));
+
+  useEffect(() => {
+    if (!autoAdvanceMs || totalPages <= 1) return;
+    const id = setInterval(() => {
+      setPage(p => (p + 1) % totalPages);
+    }, autoAdvanceMs);
+    return () => clearInterval(id);
+  }, [autoAdvanceMs, totalPages]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
