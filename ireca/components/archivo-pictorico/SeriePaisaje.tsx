@@ -23,7 +23,7 @@ export default function SeriePaisaje() {
           {title}
         </p>
         <p
-          className="leading-[1.8] text-[#001D2F]/55 md:pb-1"
+          className="leading-[1.8] text-[#001D2F]/55 text-justify md:pb-1"
           style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", fontWeight: 300 }}
         >
           {text}

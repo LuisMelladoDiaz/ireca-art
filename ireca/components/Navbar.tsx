@@ -31,21 +31,19 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center">
-          {links.map(({ label, href }, i) => {
+          {links.map(({ label, href }) => {
             const active = pathname === href;
             return (
-              <div key={href} className="flex items-center">
-                {i > 0 && <span className="mx-4 block h-px w-5 bg-[#001D2F]/40" />}
-                <Link
-                  href={href}
-                  style={{ fontFamily: "var(--font-barlow)" }}
-                  className={`text-[0.75rem] tracking-[0.22em] uppercase transition-colors hover:text-[#001D2F] ${
-                    active ? "text-[#001D2F]" : "text-[#001D2F]/70"
-                  }`}
-                >
-                  {label}
-                </Link>
-              </div>
+              <Link
+                key={href}
+                href={href}
+                style={{ fontFamily: "var(--font-barlow)" }}
+                className={`ml-8 first:ml-0 text-[0.75rem] tracking-[0.22em] uppercase transition-colors hover:text-[#001D2F] ${
+                  active ? "text-[#001D2F]" : "text-[#001D2F]/70"
+                }`}
+              >
+                {label}
+              </Link>
             );
           })}
         </div>

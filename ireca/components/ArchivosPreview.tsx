@@ -1,86 +1,145 @@
-import Image from "next/image";
 import Link from "next/link";
 import content from "@/data/content.json";
 import { getArtwork } from "@/data/artworks";
+import ArtworkImage from "@/components/ArtworkImage";
 
 const pictorico = content.obras.archivoEmocional;
 const tinta = content.obras.archivoTinta;
 
-const pictoricoImages = ["arraigo", "cimientos", "camaleon-chipionero"].map((slug) => getArtwork(slug)!);
-
-const tintaImages = [
-  { src: "/images/archivo_tinta/Llaves/Llave_1.jpg",            alt: "Llaves",        width: 500, height: 703 },
-  { src: "/images/archivo_tinta/Selvatico/Iguana.png",          alt: "Selvático",     width: 500, height: 500 },
-  { src: "/images/archivo_tinta/Otherwordly/Escena_final_1.png", alt: "Otherworldly", width: 500, height: 282 },
+const pictoricoSlugs: { slug: string; offsetX?: number; offsetY?: number }[] = [
+  { slug: "arraigo" },
+  { slug: "agosto-o-abril" },
+  { slug: "agua" },
+  { slug: "aquellos-dias-de-verano", offsetY: 100 },
 ];
 
-type PreviewImage = { src: string; alt: string; width: number; height: number };
+const pictoricoImages = pictoricoSlugs.map(({ slug, offsetX, offsetY }) => ({
+  ...getArtwork(slug)!,
+  offsetX,
+  offsetY,
+}));
+
+// Fotos específicas para la versión móvil del preview — elige aquí los slugs que quieras ver.
+const pictoricoSlugsMovil: { slug: string; offsetX?: number; offsetY?: number }[] = [
+  { slug: "aquellos-dias-de-verano", offsetY: 100 },
+  { slug: "agua" },
+];
+
+const pictoricoImagesMovil = pictoricoSlugsMovil.map(({ slug, offsetX, offsetY }) => ({
+  ...getArtwork(slug)!,
+  offsetX,
+  offsetY,
+}));
+
+const tintaImages = [
+  { src: "/images/archivo_tinta/Llaves/Llave_1.jpg", alt: "Llaves", width: 500, height: 703, offsetY: 25 },
+];
+
+type PreviewImage = { src: string; alt: string; width: number; height: number; offsetX?: number; offsetY?: number };
+
+function ImageTile({ img, className = "" }: { img: PreviewImage; className?: string }) {
+  return (
+    <div className={`relative aspect-square overflow-hidden ${className}`}>
+      <ArtworkImage
+        src={img.src}
+        alt={img.alt}
+        width={img.width}
+        height={img.height}
+        fill
+        sizes="(max-width: 768px) 30vw, 16vw"
+        offsetX={img.offsetX}
+        offsetY={img.offsetY}
+      />
+    </div>
+  );
+}
 
 function ArchiveCard({
   title,
   text,
   images,
+  mobileImages = images,
   href,
+  mobileImageCols,
 }: {
   title: string;
   text: string;
   images: PreviewImage[];
+  mobileImages?: PreviewImage[];
   href: string;
+  mobileImageCols: number;
 }) {
   return (
-    <Link href={href} className="group flex flex-1 flex-col gap-6">
-      <div className="flex gap-2">
-        {images.map((img, i) => (
-          <div
-            key={img.src}
-            className={`relative flex-1 aspect-3/4 overflow-hidden ${i === 0 ? "" : "hidden sm:block"}`}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              sizes="(max-width: 768px) 30vw, 16vw"
-            />
-          </div>
-        ))}
-      </div>
+    <div className="grid grid-cols-[2fr_3fr] gap-x-4 gap-y-2 md:flex md:flex-1 md:flex-col md:gap-3">
 
-      <div className="flex flex-col gap-3">
+      <Link href={href} className="col-start-2 row-start-1 w-fit md:order-1">
         <p
-          className="italic"
-          style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: "#A11B39", fontWeight: 700 }}
+          className="italic hover:opacity-70 transition-opacity"
+          style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(1.2rem, 1.8vw, 1.7rem)", color: "#001D2F", fontWeight: 700 }}
         >
           {title}
         </p>
-        <p
-          className="leading-[1.8] text-[#001D2F]/60 line-clamp-3"
-          style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", fontWeight: 300 }}
-        >
-          {text}
-        </p>
-        <span
-          className="mt-1 text-[#001D2F]/70 tracking-[0.18em] uppercase text-xs group-hover:text-[#001D2F] transition-colors"
-          style={{ fontFamily: "var(--font-lato)", fontWeight: 700 }}
-        >
-          Ver archivo →
-        </span>
+      </Link>
+
+      {/* Fotos — móvil */}
+      <div
+        className="col-start-1 row-start-1 row-span-3 grid gap-2 md:hidden"
+        style={{ gridTemplateColumns: `repeat(${mobileImageCols}, minmax(0, 1fr))` }}
+      >
+        {mobileImages.map((img) => (
+          <ImageTile key={img.src} img={img} />
+        ))}
       </div>
-    </Link>
+
+      {/* Fotos — desktop */}
+      <div className="hidden md:order-2 md:flex md:gap-2">
+        {images.map((img) => (
+          <ImageTile key={img.src} img={img} className="md:flex-1" />
+        ))}
+      </div>
+
+      <p
+        className="col-start-2 row-start-2 leading-[1.7] text-[#001D2F]/60 text-justify md:order-3"
+        style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", fontWeight: 300 }}
+      >
+        {text}
+      </p>
+
+      <Link
+        href={href}
+        className="col-start-2 row-start-3 w-fit text-[#001D2F]/70 tracking-[0.18em] uppercase text-xs hover:text-[#001D2F] transition-colors md:order-4"
+        style={{ fontFamily: "var(--font-lato)", fontWeight: 700 }}
+      >
+        Ver obras →
+      </Link>
+    </div>
   );
 }
 
 export default function ArchivosPreview() {
   return (
     <section className="bg-[#FFF9F2] px-6 md:px-14 py-16 md:py-24 border-t border-[#001D2F]/8">
-      <div className="grid md:grid-cols-2 gap-14 md:gap-12">
-        <ArchiveCard
-          title={pictorico.title}
-          text={pictorico.intro[0].text}
-          images={pictoricoImages}
-          href="/archivo-pictorico"
-        />
-        <ArchiveCard title={tinta.title} text={tinta.intro} images={tintaImages} href="/archivo-tinta" />
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-24 md:gap-3">
+        <div className="md:col-span-4">
+          <ArchiveCard
+            title={pictorico.title}
+            text={pictorico.previewText}
+            images={pictoricoImages}
+            mobileImages={pictoricoImagesMovil}
+            href="/archivo-pictorico"
+            mobileImageCols={1}
+          />
+        </div>
+        <div className="hidden md:block md:col-span-1" aria-hidden="true" />
+        <div className="md:col-span-1">
+          <ArchiveCard
+            title={tinta.title}
+            text={tinta.previewText}
+            images={tintaImages}
+            href="/archivo-tinta"
+            mobileImageCols={1}
+          />
+        </div>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import content from "@/data/content.json";
+import ExpandableBio from "@/components/ExpandableBio";
 
 const { title, subtitle, bio, cvUrl } = content.about;
 const paragraphs = bio.split("\n\n");
@@ -19,8 +20,8 @@ export default function AboutSection() {
             alt="Ireca en su estudio"
             width={600}
             height={900}
-            className="w-full h-auto"
-            sizes="(max-width: 768px) 100vw, 42vw"
+            className="w-5/8 mx-auto h-auto md:w-full md:mx-0"
+            sizes="(max-width: 768px) 50vw, 42vw"
           />
         </div>
 
@@ -60,9 +61,7 @@ export default function AboutSection() {
               fontWeight: 400,
             }}
           >
-            {paragraphs.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
+            <ExpandableBio paragraphs={paragraphs} />
           </div>
 
           {/* Bottom: CV */}
