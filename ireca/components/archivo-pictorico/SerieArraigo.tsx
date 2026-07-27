@@ -70,34 +70,36 @@ export default function SerieArraigo() {
             (ver naturalColumnWidth); todas las obras a object-cover, sin margen interno. */}
         <div className="grid grid-rows-[4fr_5fr_4fr] gap-3 aspect-square w-full flex-1" style={{ gridTemplateColumns }}>
 
+          {/* offsetX/offsetY (0-100, 50 = centro): qué parte de la obra queda visible tras el
+              recorte de object-cover. Ajusta estos números por obra a gusto. */}
           <div>
-            <ArtworkImage {...aquellosDias} fill className="object-cover" sizes={sidesSizes} quality={100} />
+            <ArtworkImage {...verano24} fill className="object-cover" sizes={sidesSizes} quality={100} offsetX={50} offsetY={50} />
           </div>
           <div>
-            <ArtworkImage {...chiquitita} fill className="object-cover" sizes={centerColSizes} quality={100} />
+            <ArtworkImage {...agostoOAbril} fill className="object-cover" sizes={centerColSizes} quality={100} offsetX={50} offsetY={100} />
           </div>
           <div>
-            <ArtworkImage {...quien} fill className="object-cover" sizes={sidesSizes} quality={100} />
-          </div>
-
-          <div>
-            <ArtworkImage {...ninas} fill className="object-cover" sizes={sidesSizes} quality={100} />
-          </div>
-          <div>
-            <ArtworkImage {...arraigo} fill className="object-cover" sizes={centerColSizes} quality={100} />
-          </div>
-          <div>
-            <ArtworkImage {...cimientos} fill className="object-cover" sizes={sidesSizes} quality={100} />
+            <ArtworkImage {...chipionaSevilla} fill className="object-cover" sizes={sidesSizes} quality={100} offsetX={50} offsetY={30} />
           </div>
 
           <div>
-            <ArtworkImage {...chipionaSevilla} fill className="object-cover" sizes={sidesSizes} quality={100} />
+            <ArtworkImage {...aquellosDias} fill className="object-cover" sizes={sidesSizes} quality={100} offsetX={50} offsetY={50} />
           </div>
           <div>
-            <ArtworkImage {...agostoOAbril} fill className="object-cover" sizes={centerColSizes} quality={100} />
+            <ArtworkImage {...arraigo} fill className="object-cover" sizes={centerColSizes} quality={100} offsetX={50} offsetY={50} />
           </div>
           <div>
-            <ArtworkImage {...verano24} fill className="object-cover" sizes={sidesSizes} quality={100} />
+            <ArtworkImage {...quien} fill className="object-cover" sizes={sidesSizes} quality={100} offsetX={50} offsetY={50} />
+          </div>
+
+          <div>
+            <ArtworkImage {...cimientos} fill className="object-cover" sizes={sidesSizes} quality={100} offsetX={50} offsetY={65} />
+          </div>
+          <div>
+            <ArtworkImage {...chiquitita} fill className="object-cover" sizes={centerColSizes} quality={100} offsetX={50} offsetY={50} />
+          </div>
+          <div>
+            <ArtworkImage {...ninas} fill className="object-cover" sizes={sidesSizes} quality={100} offsetX={50} offsetY={80} />
           </div>
 
         </div>
