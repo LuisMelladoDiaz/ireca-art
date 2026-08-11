@@ -38,19 +38,9 @@ export default async function ObraPage({
   const sectionTitle = getSectionTitle(piece.section);
 
   return (
-    <main className="min-h-screen bg-[#FFF9F2] flex flex-col pt-24 md:pt-28">
-      <div className="px-6 md:px-14 pb-4">
-        <Link
-          href="/archivo-pictorico"
-          style={{ fontFamily: "var(--font-barlow)" }}
-          className="text-[0.75rem] tracking-[0.18em] uppercase text-[#001D2F]/60 hover:text-[#001D2F] transition-colors"
-        >
-          ← Volver al archivo
-        </Link>
-      </div>
-
-      <div className="flex-1 flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-center px-6 md:px-14 pb-16 md:pb-0">
-        <div className="flex-1 w-full md:max-w-fit flex items-center md:justify-start justify-center">
+    <main className="min-h-screen bg-[#FFF9F2] flex flex-col pt-24 md:pt-28 pb-24 md:pb-28">
+      <div className="flex-1 flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-center px-6 md:px-14">
+        <div className="flex-none md:flex-1 w-full md:max-w-fit flex items-center md:justify-start justify-center">
           {piece.images.length === 0 && (
             <div className="w-full max-w-md aspect-4/5 flex items-center justify-center border border-dashed border-[#001D2F]/20">
               <p
@@ -70,15 +60,14 @@ export default async function ObraPage({
                 width={piece.images[0].width}
                 height={piece.images[0].height}
                 sizes="(max-width: 768px) 100vw, 60vw"
-                className="w-auto h-auto max-w-full object-contain"
-                style={{ maxHeight: "80vh" }}
+                className="w-auto h-auto max-w-full max-h-[50vh] md:max-h-[80vh] object-contain"
                 priority
               />
             </div>
           )}
 
           {piece.images.length > 1 && (
-            <div className="w-full grid grid-cols-2 gap-3" style={{ maxHeight: "80vh" }}>
+            <div className="w-full grid grid-cols-2 gap-3 max-h-[50vh] md:max-h-[80vh]">
               {piece.images.map((img) => (
                 <div key={img.src} className="relative aspect-square">
                   <ArtworkImage src={img.src} alt={img.alt} width={img.width} height={img.height} fill sizes="(max-width: 768px) 50vw, 30vw" />
@@ -131,6 +120,13 @@ export default async function ObraPage({
               {description}
             </p>
           )}
+          <Link
+            href="/archivo-pictorico"
+            style={{ fontFamily: "var(--font-barlow)" }}
+            className="text-[0.75rem] tracking-[0.18em] uppercase text-[#001D2F]/60 hover:text-[#001D2F] transition-colors"
+          >
+            ← Volver al archivo
+          </Link>
         </div>
       </div>
     </main>
