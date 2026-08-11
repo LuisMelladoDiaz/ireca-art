@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EXHIBITION_PIECES, getPiece } from "@/data/exhibitionPieces";
 import { getArtworkDescription, getSectionTitle } from "@/data/artworks";
 import ArtworkImage from "@/components/ArtworkImage";
+import FitOneLineTitle from "@/components/FitOneLineTitle";
 
 export function generateStaticParams() {
   return EXHIBITION_PIECES.map((p) => ({ slug: p.slug }));
@@ -36,7 +36,6 @@ export default async function ObraPage({
 
   const description = getArtworkDescription(piece.section);
   const sectionTitle = getSectionTitle(piece.section);
-  const meta = [piece.year, piece.medium, piece.dimensions].filter(Boolean).join(" · ");
 
   return (
     <main className="min-h-screen bg-[#FFF9F2] flex flex-col pt-24 md:pt-28">
@@ -51,7 +50,7 @@ export default async function ObraPage({
       </div>
 
       <div className="flex-1 flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-center px-6 md:px-14 pb-16 md:pb-0">
-        <div className="flex-1 w-full flex items-center justify-center">
+        <div className="flex-1 w-full md:max-w-fit flex items-center md:justify-start justify-center">
           {piece.images.length === 0 && (
             <div className="w-full max-w-md aspect-4/5 flex items-center justify-center border border-dashed border-[#001D2F]/20">
               <p
@@ -64,16 +63,18 @@ export default async function ObraPage({
           )}
 
           {piece.images.length === 1 && (
-            <Image
-              src={piece.images[0].src}
-              alt={piece.images[0].alt}
-              width={piece.images[0].width}
-              height={piece.images[0].height}
-              sizes="(max-width: 768px) 100vw, 60vw"
-              className="w-auto h-auto max-w-full object-contain"
-              style={{ maxHeight: "80vh" }}
-              priority
-            />
+            <div className="w-fit max-w-full">
+              <ArtworkImage
+                src={piece.images[0].src}
+                alt={piece.images[0].alt}
+                width={piece.images[0].width}
+                height={piece.images[0].height}
+                sizes="(max-width: 768px) 100vw, 60vw"
+                className="w-auto h-auto max-w-full object-contain"
+                style={{ maxHeight: "80vh" }}
+                priority
+              />
+            </div>
           )}
 
           {piece.images.length > 1 && (
@@ -87,7 +88,7 @@ export default async function ObraPage({
           )}
         </div>
 
-        <div className="w-full md:w-80 shrink-0 flex flex-col gap-4">
+        <div className="w-full md:flex-1 md:max-w-md shrink-0 flex flex-col gap-4">
           {sectionTitle && (
             <p
               className="text-[#001D2F]/40 tracking-[0.18em] uppercase text-xs"
@@ -96,31 +97,35 @@ export default async function ObraPage({
               {sectionTitle}
             </p>
           )}
-          <p
+          <FitOneLineTitle
             className="italic"
-            style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: "#A11B39", fontWeight: 700 }}
+            style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(2.4rem, 5vw, 4rem)", color: "#A11B39", fontWeight: 700 }}
           >
             {piece.title}
-          </p>
-          {piece.titleEn && (
-            <p
-              className="italic text-[#001D2F]/40 -mt-3"
-              style={{ fontFamily: "var(--font-lato)", fontSize: "1rem" }}
-            >
-              {piece.titleEn}
-            </p>
-          )}
-          {meta && (
-            <p
-              className="text-[#001D2F]/50 tracking-[0.08em] text-xs uppercase"
-              style={{ fontFamily: "var(--font-barlow)", fontWeight: 500 }}
-            >
-              {meta}
-            </p>
+          </FitOneLineTitle>
+          {(piece.year || piece.medium) && (
+            <div className="flex flex-col gap-1">
+              {piece.year && (
+                <p
+                  className="text-[#001D2F]/50 tracking-[0.08em] text-xs uppercase"
+                  style={{ fontFamily: "var(--font-barlow)", fontWeight: 500 }}
+                >
+                  {piece.year}
+                </p>
+              )}
+              {piece.medium && (
+                <p
+                  className="text-[#001D2F]/50 tracking-[0.08em] text-xs uppercase"
+                  style={{ fontFamily: "var(--font-barlow)", fontWeight: 500 }}
+                >
+                  {piece.medium}
+                </p>
+              )}
+            </div>
           )}
           {description && (
             <p
-              className="leading-[1.8] text-[#001D2F]/60"
+              className="leading-[1.8] text-black text-justify"
               style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", fontWeight: 300 }}
             >
               {description}
