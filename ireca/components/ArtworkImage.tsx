@@ -17,16 +17,19 @@ type Props = {
   style?: CSSProperties;
   offsetX?: number;
   offsetY?: number;
+  /** Técnica y medidas — si se indican, se muestran junto al título en el modo zoom */
+  medium?: string;
+  dimensions?: string;
 };
 
-export default function ArtworkImage({ src, alt, width, height, fill, className, sizes, quality, priority, style, offsetX, offsetY }: Props) {
+export default function ArtworkImage({ src, alt, width, height, fill, className, sizes, quality, priority, style, offsetX, offsetY, medium, dimensions }: Props) {
   const { open } = useLightbox();
   const objectPosition = offsetX !== undefined || offsetY !== undefined ? `${offsetX ?? 50}% ${offsetY ?? 50}%` : undefined;
 
   return (
     <button
       type="button"
-      onClick={() => open({ src, alt, width, height })}
+      onClick={() => open({ src, alt, width, height, medium, dimensions })}
       className="group relative block w-full h-full cursor-pointer overflow-hidden text-left"
       aria-label={`Ver «${alt}» en grande`}
     >

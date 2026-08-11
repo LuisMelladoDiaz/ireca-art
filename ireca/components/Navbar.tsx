@@ -20,7 +20,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-40 bg-[#FFF9F2] border-b border-[#001D2F]/10">
 
       {/* Top bar */}
-      <div className="flex items-center justify-between px-8 md:px-14 py-3">
+      <div className="flex items-center justify-between px-8 md:px-14 py-1">
         <Link
           href="/"
           className="text-[#001D2F]"

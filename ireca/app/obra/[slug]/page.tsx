@@ -21,7 +21,7 @@ export async function generateMetadata({
 
   return {
     title: `${piece.title} — ireca`,
-    description: getArtworkDescription(piece.section),
+    description: piece.description ?? getArtworkDescription(piece.section),
   };
 }
 
@@ -34,7 +34,7 @@ export default async function ObraPage({
   const piece = getPiece(slug);
   if (!piece) notFound();
 
-  const description = getArtworkDescription(piece.section);
+  const description = piece.description ?? getArtworkDescription(piece.section);
   const sectionTitle = getSectionTitle(piece.section);
 
   return (
@@ -62,6 +62,8 @@ export default async function ObraPage({
                 sizes="(max-width: 768px) 100vw, 60vw"
                 className="w-auto h-auto max-w-full max-h-[50vh] md:max-h-[80vh] object-contain"
                 priority
+                medium={piece.medium}
+                dimensions={piece.dimensions}
               />
             </div>
           )}
@@ -70,7 +72,16 @@ export default async function ObraPage({
             <div className="w-full grid grid-cols-2 gap-3 max-h-[50vh] md:max-h-[80vh]">
               {piece.images.map((img) => (
                 <div key={img.src} className="relative aspect-square">
-                  <ArtworkImage src={img.src} alt={img.alt} width={img.width} height={img.height} fill sizes="(max-width: 768px) 50vw, 30vw" />
+                  <ArtworkImage
+                    src={img.src}
+                    alt={img.alt}
+                    width={img.width}
+                    height={img.height}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 30vw"
+                    medium={piece.medium}
+                    dimensions={piece.dimensions}
+                  />
                 </div>
               ))}
             </div>
@@ -114,7 +125,7 @@ export default async function ObraPage({
           )}
           {description && (
             <p
-              className="leading-[1.8] text-black text-justify"
+              className="leading-[1.8] text-black text-justify whitespace-pre-line"
               style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", fontWeight: 300 }}
             >
               {description}

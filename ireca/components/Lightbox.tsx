@@ -8,6 +8,8 @@ export type Artwork = {
   alt: string;
   width: number;
   height: number;
+  medium?: string;
+  dimensions?: string;
 };
 
 type LightboxContextValue = {
@@ -63,15 +65,46 @@ export function LightboxProvider({ children }: { children: React.ReactNode }) {
             </svg>
           </button>
 
-          <Image
-            src={artwork.src}
-            alt={artwork.alt}
-            width={artwork.width}
-            height={artwork.height}
-            sizes="95vw"
-            className="w-auto h-auto max-w-full max-h-full object-contain"
+          <div
+            className="max-w-[95vw] max-h-[85vh] flex flex-col md:flex-row items-end gap-2 md:gap-4"
             onClick={(e) => e.stopPropagation()}
-          />
+          >
+            <Image
+              src={artwork.src}
+              alt={artwork.alt}
+              width={artwork.width}
+              height={artwork.height}
+              sizes="(max-width: 768px) 95vw, 85vw"
+              className="w-auto h-auto max-w-[95vw] md:max-w-[85vw] max-h-[75vh] md:max-h-[85vh] object-contain"
+            />
+
+            {(artwork.medium || artwork.dimensions) && (
+              <div className="text-right shrink-0">
+                <p
+                  className="uppercase text-white"
+                  style={{ fontFamily: "var(--font-lato)", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.04em" }}
+                >
+                  {artwork.alt}
+                </p>
+                {artwork.medium && (
+                  <p
+                    className="text-white/75"
+                    style={{ fontFamily: "var(--font-barlow)", fontSize: "0.75rem" }}
+                  >
+                    {artwork.medium}
+                  </p>
+                )}
+                {artwork.dimensions && (
+                  <p
+                    className="text-white/75"
+                    style={{ fontFamily: "var(--font-barlow)", fontSize: "0.75rem" }}
+                  >
+                    {artwork.dimensions}
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </LightboxContext.Provider>
