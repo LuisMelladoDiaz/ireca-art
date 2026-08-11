@@ -6,11 +6,11 @@ const { title, text } = content.obras.archivoEmocional.sections.arraigo;
 
 // Columnas 1 y 3 — obras verticales (cuadros altos)
 const aquellosDias = getArtwork("aquellos-dias-de-verano")!;
-const ninas = getArtwork("ninas")!;
+const ninas = getArtwork("las-ninas")!;
 const chipionaSevilla = getArtwork("chipiona-y-sevilla")!;
 const quien = getArtwork("quien")!;
 const cimientos = getArtwork("cimientos")!;
-const verano24 = getArtwork("verano-24")!;
+const verano24 = getArtwork("verano-del-24")!;
 
 // Fila 1 y 3, columna central — obras horizontales (cuadros largos)
 const chiquitita = getArtwork("chiquitita")!;
