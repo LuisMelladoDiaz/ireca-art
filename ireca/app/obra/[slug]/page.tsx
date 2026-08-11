@@ -37,6 +37,11 @@ export default async function ObraPage({
   const description = piece.description ?? getArtworkDescription(piece.section);
   const sectionTitle = getSectionTitle(piece.section);
 
+  // "Mis cuatro elementos" es la única pieza cuyo grid va a cuadrado puro en vez de respetar
+  // la proporción real de la primera obra (que sí se usa como referencia para el resto).
+  const gridCellRatio =
+    piece.slug === "mis-cuatro-elementos" ? 1 : piece.images[0]?.width / piece.images[0]?.height;
+
   return (
     <main className="min-h-screen bg-[#FFF9F2] flex flex-col pt-24 md:pt-28 pb-24 md:pb-28">
       <div className="flex-1 flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-center px-6 md:px-14">
@@ -69,15 +74,26 @@ export default async function ObraPage({
           )}
 
           {piece.images.length > 1 && (
-            <div className="w-[min(90vw,42rem)] grid grid-cols-2 gap-3 max-h-[50vh] md:max-h-[80vh]">
+            <div
+              className="grid grid-cols-2 gap-3"
+              style={{
+                // El ancho se calcula a partir del hueco disponible en horizontal Y en vertical
+                // (convertido a un ancho equivalente vía la proporción del grid), no solo del
+                // horizontal — así nunca desborda por abajo aunque haya varias filas de imágenes.
+                width: `min(90vw, 42rem, calc(48vh * ${
+                  (2 * gridCellRatio) / Math.ceil(piece.images.length / 2)
+                }))`,
+              }}
+            >
               {piece.images.map((img) => (
-                <div key={img.src} className="relative aspect-square">
+                <div key={img.src} className="relative" style={{ aspectRatio: gridCellRatio }}>
                   <ArtworkImage
                     src={img.src}
                     alt={img.alt}
                     width={img.width}
                     height={img.height}
                     fill
+                    className="object-cover"
                     sizes="(max-width: 768px) 50vw, 30vw"
                     medium={piece.medium}
                     dimensions={piece.dimensions}

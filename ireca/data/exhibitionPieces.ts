@@ -184,7 +184,7 @@ export const EXHIBITION_PIECES: ExhibitionPiece[] = [
     dimensions: "21 x 23 cm",
     description:
       "Cada composición representa un recuerdo creado a partir de la combinación de muchos que han sido modificados, deformados y yuxtapuestos en nuestra mente. El paisaje se construye con piezas de diferentes lugares y tiempos, constituyendo un paisaje ficticio pero que podría ser real. Es como si el inconsciente tratase de reconstruir lo olvidado y completarlo a través del gesto pictórico.",
-    images: imagesFrom(["instante-1", "instante-2", "instante-3", "instante-4", "instante-5"]),
+    images: imagesFrom(["instante-1", "instante-2", "instante-3", "instante-4"]),
     section: "paisaje",
   },
   {
