@@ -69,7 +69,7 @@ export default async function ObraPage({
           )}
 
           {piece.images.length > 1 && (
-            <div className="w-full grid grid-cols-2 gap-3 max-h-[50vh] md:max-h-[80vh]">
+            <div className="w-[min(90vw,42rem)] grid grid-cols-2 gap-3 max-h-[50vh] md:max-h-[80vh]">
               {piece.images.map((img) => (
                 <div key={img.src} className="relative aspect-square">
                   <ArtworkImage
