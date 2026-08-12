@@ -8,10 +8,12 @@ import ArtworkImage from "@/components/ArtworkImage";
 const { title, text } = content.obras.archivoTinta.series.otherworldly;
 
 const images = [
-  { src: "/images/archivo_tinta/Otherwordly/Restaurante.png",    alt: "Restaurante",    width: 800, height: 453 },
-  { src: "/images/archivo_tinta/Otherwordly/Escena_final_1.png", alt: "Escena final 1", width: 800, height: 451 },
-  { src: "/images/archivo_tinta/Otherwordly/Escena_inicio.png",  alt: "Escena inicio",  width: 800, height: 449 },
-  { src: "/images/archivo_tinta/Otherwordly/Callejon.png",       alt: "Callejón",       width: 800, height: 453 },
+  { src: "/images/archivo_tinta/Otherwordly/Escena_final_1.png", alt: "Escena final 1", width: 800,  height: 451 },
+  { src: "/images/archivo_tinta/Otherwordly/Escena_final_2.png", alt: "Escena final 2", width: 2351, height: 1334 },
+  { src: "/images/archivo_tinta/Otherwordly/Escena_inicio.png",  alt: "Escena inicio",  width: 800,  height: 449 },
+  { src: "/images/archivo_tinta/Otherwordly/Restaurante.png",    alt: "Restaurante",    width: 800,  height: 453 },
+  { src: "/images/archivo_tinta/Otherwordly/Menu.PNG",           alt: "Menú",           width: 2345, height: 1327 },
+  { src: "/images/archivo_tinta/Otherwordly/Callejon.png",       alt: "Callejón",       width: 800,  height: 453 },
 ];
 
 function IconPlay() {
@@ -83,10 +85,10 @@ export default function SerieOtherworldly() {
         >
           {text}
         </p>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {images.map((img) => (
             <div key={img.src} className="relative aspect-video">
-              <ArtworkImage {...img} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
+              <ArtworkImage {...img} fill className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
             </div>
           ))}
         </div>
