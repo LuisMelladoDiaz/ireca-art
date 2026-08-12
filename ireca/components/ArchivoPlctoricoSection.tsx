@@ -12,7 +12,7 @@ export default function ArchivoPlctoricoSection() {
         className="leading-tight text-[#001D2F] italic text-center px-6 pt-24 pb-10 md:pt-32 md:pb-14"
         style={{
           fontFamily: "var(--font-belleza)",
-          fontSize: "clamp(3.5rem, 7vw, 6.5rem)",
+          fontSize: "clamp(2.5rem, 5vw, 4rem)",
         }}
       >
         Archivo Pictórico
