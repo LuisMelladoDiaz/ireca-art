@@ -13,8 +13,9 @@ const ORDER: Partial<Record<ArtworkSection, string[]>> = {
     "chipiona-y-sevilla", "cimientos", "las-ninas", "verano-del-24", "agosto-o-abril", "chiquitita", "conchitas",
   ],
   caracolas: [
-    "azul-marino", "eco-del-mar", "donde-vivo-hay-caracolas-1", "donde-vivo-hay-caracolas-2",
+    "donde-vivo-hay-caracolas-1", "donde-vivo-hay-caracolas-2",
     "relicarios-1", "relicarios-2",
+    "azul-marino", "eco-del-mar",
   ],
   mencionEspecial: [
     "camaleon-chipionero", "expo-camaleon-1", "expo-camaleon-2", "expo-camaleon-3",
