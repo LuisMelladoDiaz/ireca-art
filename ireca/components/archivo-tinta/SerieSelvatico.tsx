@@ -4,7 +4,6 @@ import SeriesCarousel from "@/components/SeriesCarousel";
 const { title, text } = content.obras.archivoTinta.series.selvatico;
 
 const images = [
-  { src: "/images/archivo_tinta/Llaves/Llave_2.jpg", alt: "Selvático — obra destacada", width: 1200, height: 843 },
   { src: "/images/archivo_tinta/Selvatico/Iguana.png", alt: "Iguana", width: 600, height: 600 },
   { src: "/images/archivo_tinta/Selvatico/Serpiente.png", alt: "Serpiente", width: 600, height: 600 },
   { src: "/images/archivo_tinta/Selvatico/Tortuga.png", alt: "Tortuga", width: 600, height: 600 },

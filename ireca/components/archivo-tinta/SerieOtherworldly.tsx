@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import ArtworkImage from "@/components/ArtworkImage";
 import content from "@/data/content.json";
+import ArtworkImage from "@/components/ArtworkImage";
 
 const { title, text } = content.obras.archivoTinta.series.otherworldly;
 
@@ -69,54 +69,30 @@ export default function SerieOtherworldly() {
 
   return (
     <>
-      {/* Full bleed — Escena final */}
-      <section id="otherworldly" className="relative w-full h-screen border-t border-[#001D2F]/8 scroll-mt-16">
-        <ArtworkImage
-          src="/images/archivo_tinta/Otherwordly/Escena_final_1.png"
-          alt="Otherwordly — escena final"
-          width={1200}
-          height={676}
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-        />
+      {/* Título + descripción + carrusel — mismo patrón que el resto de series */}
+      <section id="otherworldly" className="bg-[#FFF9F2] px-6 md:px-14 py-16 md:py-20 border-t border-[#001D2F]/8 scroll-mt-16">
         <p
-          className="absolute bottom-10 right-6 md:bottom-14 md:right-14 text-right italic text-white/80"
-          style={{
-            fontFamily: "var(--font-belleza)",
-            fontSize: "clamp(1.5rem, 3vw, 3rem)",
-          }}
+          className="italic mb-4"
+          style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(2rem, 3.5vw, 3rem)", color: "#A11B39", fontWeight: 700 }}
         >
           {title}
         </p>
-      </section>
-
-      {/* Cuadrícula de obras */}
-      <section className="bg-[#FFF9F2] px-6 md:px-14 py-12 md:py-16">
-        <div className="flex flex-col md:flex-row md:items-end gap-2 md:gap-8 mb-8 md:mb-10">
-          <p
-            className="italic"
-            style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#A11B39", fontWeight: 700 }}
-          >
-            {title}
-          </p>
-          <p
-            className="leading-[1.8] text-[#001D2F]/60 md:pb-1"
-            style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.95rem, 1.3vw, 1.15rem)", fontWeight: 300 }}
-          >
-            {text}
-          </p>
-        </div>
-        <div className="columns-1 sm:columns-2 gap-3 space-y-3">
+        <p
+          className="leading-[1.8] text-black text-justify max-w-2xl mb-10 md:mb-14"
+          style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", fontWeight: 300 }}
+        >
+          {text}
+        </p>
+        <div className="grid grid-cols-2 gap-3">
           {images.map((img) => (
-            <div key={img.src} className="break-inside-avoid">
-              <ArtworkImage {...img} className="w-full h-auto" sizes="(max-width: 640px) 100vw, 50vw" />
+            <div key={img.src} className="relative aspect-video">
+              <ArtworkImage {...img} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
             </div>
           ))}
         </div>
       </section>
 
-      {/* Juego jugable */}
+      {/* Juego jugable — aparte, no sigue el patrón de carrusel */}
       <section className="bg-[#FFF9F2] px-4 md:px-14 py-12 md:py-16 flex flex-col gap-5">
         <p
           className="italic text-[#001D2F]/50 px-2 md:px-0"
@@ -176,21 +152,6 @@ export default function SerieOtherworldly() {
           </div>
         </div>
       </section>
-
-      {/* Full bleed — Menu */}
-      <section className="relative w-full h-screen">
-        <ArtworkImage
-          src="/images/archivo_tinta/Otherwordly/Menu.PNG"
-          alt="Otherwordly — menú"
-          width={1200}
-          height={679}
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-      </section>
-
-      
     </>
   );
 }

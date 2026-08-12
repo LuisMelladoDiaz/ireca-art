@@ -5,6 +5,7 @@ const { title, text } = content.obras.archivoTinta.series.llaves;
 
 const images = [
   { src: "/images/archivo_tinta/Llaves/Llave_1.jpg", alt: "Llaves — edificio", width: 1200, height: 1686 },
+  { src: "/images/archivo_tinta/Llaves/Llave_2.jpg", alt: "Selvático — obra destacada", width: 1200, height: 843 },
   { src: "/images/archivo_tinta/Llaves/Llave_3.jpg", alt: "Llaves — cerradura", width: 600, height: 984 },
 ];
 
