@@ -9,7 +9,7 @@ const { title, intro } = content.obras.archivoTinta;
 const navTiles = [
   { href: "#llaves", label: "Ver serie Llaves", cover: { src: "/images/archivo_tinta/Llaves/Llave_1.jpg", alt: "Llaves" } },
   { href: "#selvatico", label: "Ver serie Selvático", cover: { src: "/images/archivo_tinta/Selvatico/Iguana.png", alt: "Selvático" } },
-  { href: "#otherworldly", label: "Ver videojuego Otherworldly", cover: { src: "/images/archivo_tinta/Otherwordly/Escena_final_1.png", alt: "Otherworldly" } },
+  { href: "#otherworldly", label: "Ver videojuego Otherworldly", cover: { src: "/images/archivo_tinta/Otherwordly/Escena_Inicio.png", alt: "Otherworldly" } },
 ];
 
 export default function ArchivoTintaSection() {
@@ -33,7 +33,7 @@ export default function ArchivoTintaSection() {
       </p>
 
       {/* Accesos directos — una foto por serie, con el título encima, que lleva al ancla */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl md:max-w-4xl mx-auto mt-10 md:mt-14 px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl md:max-w-4xl mx-auto mt-10 md:mt-14 mb-16 md:mb-20 px-6">
         {navTiles.map(({ href, label, cover }) => (
           <a key={href} href={href} className="group relative block aspect-square overflow-hidden">
             <Image

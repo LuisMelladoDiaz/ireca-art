@@ -9,8 +9,8 @@ const { title, text } = content.obras.archivoTinta.series.otherworldly;
 
 const images = [
   { src: "/images/archivo_tinta/Otherwordly/Escena_final_1.png", alt: "Escena final 1", width: 800,  height: 451 },
-  { src: "/images/archivo_tinta/Otherwordly/Escena_final_2.png", alt: "Escena final 2", width: 2351, height: 1334 },
   { src: "/images/archivo_tinta/Otherwordly/Escena_inicio.png",  alt: "Escena inicio",  width: 800,  height: 449 },
+  { src: "/images/archivo_tinta/Otherwordly/Escena_final_2.png", alt: "Escena final 2", width: 2351, height: 1334 },
   { src: "/images/archivo_tinta/Otherwordly/Restaurante.png",    alt: "Restaurante",    width: 800,  height: 453 },
   { src: "/images/archivo_tinta/Otherwordly/Menu.PNG",           alt: "Menú",           width: 2345, height: 1327 },
   { src: "/images/archivo_tinta/Otherwordly/Callejon.png",       alt: "Callejón",       width: 800,  height: 453 },
@@ -73,24 +73,26 @@ export default function SerieOtherworldly() {
     <>
       {/* Título + descripción + carrusel — mismo patrón que el resto de series */}
       <section id="otherworldly" className="bg-[#FFF9F2] px-6 md:px-14 py-16 md:py-20 border-t border-[#001D2F]/8 scroll-mt-16">
-        <p
-          className="italic mb-4"
-          style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(2rem, 3.5vw, 3rem)", color: "#A11B39", fontWeight: 700 }}
-        >
-          {title}
-        </p>
-        <p
-          className="leading-[1.8] text-black text-justify max-w-2xl mb-10 md:mb-14"
-          style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", fontWeight: 300 }}
-        >
-          {text}
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {images.map((img) => (
-            <div key={img.src} className="relative aspect-video">
-              <ArtworkImage {...img} fill className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
-            </div>
-          ))}
+        <div className="md:max-w-4xl">
+          <p
+            className="italic mb-4"
+            style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(2rem, 3.5vw, 3rem)", color: "#A11B39", fontWeight: 700 }}
+          >
+            {title}
+          </p>
+          <p
+            className="leading-[1.8] text-black text-justify max-w-2xl mb-10 md:mb-14"
+            style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", fontWeight: 300 }}
+          >
+            {text}
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {images.map((img) => (
+              <div key={img.src} className="relative aspect-video">
+                <ArtworkImage {...img} fill className="object-cover" sizes="(max-width: 768px) 50vw, 30vw" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -109,7 +111,7 @@ export default function SerieOtherworldly() {
         {/* Contenedor del player */}
         <div
           ref={containerRef}
-          className="relative w-full bg-black"
+          className="relative w-full md:max-w-2xl bg-black"
           style={{ aspectRatio: "1080 / 720" }}
         >
           {/* Juego o portada */}
