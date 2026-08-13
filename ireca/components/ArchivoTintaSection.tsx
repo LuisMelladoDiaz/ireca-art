@@ -9,7 +9,7 @@ const { title, intro } = content.obras.archivoTinta;
 const navTiles = [
   { href: "#llaves", label: "Serie Llaves", cover: { src: "/images/archivo_tinta/Llaves/Llave_1.jpg", alt: "Llaves" } },
   { href: "#selvatico", label: "Serie Selvático", cover: { src: "/images/archivo_tinta/Selvatico/Iguana.png", alt: "Selvático" } },
-  { href: "#otherworldly", label: "Videojuego Otherworldly", cover: { src: "/images/archivo_tinta/Otherwordly/Escena_Inicio.png", alt: "Otherworldly" } },
+  { href: "#otherworldly", label: "Videojuego Otherworldly", cover: { src: "/images/archivo_tinta/Otherwordly/Escena_inicio.png", alt: "Otherworldly" } },
 ];
 
 export default function ArchivoTintaSection() {
