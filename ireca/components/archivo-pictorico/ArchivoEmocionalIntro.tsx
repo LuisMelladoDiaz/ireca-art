@@ -5,10 +5,10 @@ import { getArtwork, type ArtworkSection } from "@/data/artworks";
 const { intro } = content.obras.archivoEmocional;
 
 const navTiles: { section: ArtworkSection; label: string; cover: ReturnType<typeof getArtwork> }[] = [
-  { section: "arraigo", label: "Ver serie Arraigo", cover: getArtwork("arraigo") },
-  { section: "caracolas", label: "Ver caracolas", cover: getArtwork("relicarios-2") },
-  { section: "paisaje", label: "Ver paisajes", cover: getArtwork("aire") },
-  { section: "mencionEspecial", label: "Ver menciones especiales", cover: getArtwork("hogar") },
+  { section: "arraigo", label: "Serie Arraigo", cover: getArtwork("arraigo") },
+  { section: "caracolas", label: "Caracolas", cover: getArtwork("relicarios-2") },
+  { section: "paisaje", label: "Paisajes", cover: getArtwork("aire") },
+  { section: "mencionEspecial", label: "Menciones especiales", cover: getArtwork("hogar") },
 ];
 
 export default function ArchivoEmocionalIntro() {

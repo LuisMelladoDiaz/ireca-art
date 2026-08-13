@@ -99,7 +99,7 @@ function ArchiveCard({
       </div>
 
       <p
-        className="col-start-2 row-start-2 leading-[1.7] text-[#001D2F]/60 text-justify md:order-3"
+        className="col-start-2 row-start-2 leading-[1.7] text-black text-justify md:order-3"
         style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)", fontWeight: 300 }}
       >
         {text}

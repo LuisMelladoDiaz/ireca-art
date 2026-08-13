@@ -24,7 +24,7 @@ export default function SerieLlaves() {
       >
         {text}
       </p>
-      <SeriesCarousel images={images} naturalAspect />
+      <SeriesCarousel images={images} />
     </section>
   );
 }

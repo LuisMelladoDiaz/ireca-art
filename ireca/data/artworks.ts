@@ -31,8 +31,8 @@ export const ARTWORKS: Artwork[] = [
   { slug: "eco-del-mar",                src: `${PICTORICO}/Caracolas/Eco_del_mar.jpg`,                alt: "Eco del mar",                width: 600, height: 1250, section: "caracolas" },
   { slug: "donde-vivo-hay-caracolas-1", src: `${PICTORICO}/Caracolas/Donde_vivo_hay_caracolas_1.jpg`, alt: "Donde vivo hay caracolas I",  width: 600, height: 936,  section: "caracolas" },
   { slug: "donde-vivo-hay-caracolas-2", src: `${PICTORICO}/Caracolas/Donde_vivo_hay_caracolas_2.jpg`, alt: "Donde vivo hay caracolas II", width: 600, height: 900,  section: "caracolas" },
-  { slug: "relicarios-1",               src: `${PICTORICO}/Caracolas/Relicario.jpg`,                  alt: "Relicarios I",                width: 2714, height: 3539, section: "caracolas" },
-  { slug: "relicarios-2",               src: `${PICTORICO}/Caracolas/Reli-abu.jpg`,                   alt: "Relicarios II",               width: 2530, height: 3325, section: "caracolas" },
+  { slug: "relicarios-1",               src: `${PICTORICO}/Caracolas/Relicario.jpg`,                  alt: "Relicario",                   width: 2714, height: 3539, section: "caracolas" },
+  { slug: "relicarios-2",               src: `${PICTORICO}/Caracolas/Reli-abu.jpg`,                   alt: "El bol de la abuela Pepi",     width: 2530, height: 3325, section: "caracolas" },
 
   // Paisaje — elementos
   { slug: "agua",   src: `${PICTORICO}/Paisaje/Agua.jpg`,   alt: "Agua",   width: 2312, height: 3278, section: "paisaje" },

@@ -16,10 +16,6 @@ interface SeriesCarouselProps {
   perPage?: number;
   /** Si se indica, avanza de página sola cada X ms (bucle) */
   autoAdvanceMs?: number;
-  /** Alto acotado a la pantalla (media pantalla aprox.), cada foto conserva su proporción natural */
-  naturalAspect?: boolean;
-  /** Fuerza la proporción de la primera foto sobre el resto (recortadas, nunca deformadas) */
-  forceFirstAspect?: boolean;
 }
 
 function responsivePerPage(width: number) {
@@ -30,7 +26,7 @@ function responsivePerPage(width: number) {
   return 1;
 }
 
-export default function SeriesCarousel({ images, perPage: perPageProp, autoAdvanceMs, naturalAspect = false, forceFirstAspect = false }: SeriesCarouselProps) {
+export default function SeriesCarousel({ images, perPage: perPageProp, autoAdvanceMs }: SeriesCarouselProps) {
   const [autoPerPage, setAutoPerPage] = useState(1);
 
   useEffect(() => {
@@ -80,11 +76,9 @@ export default function SeriesCarousel({ images, perPage: perPageProp, autoAdvan
 
   return (
     <div className="w-full">
-      {/* Imágenes, con flechas a los lados — el padding horizontal reserva sitio para que
-          las flechas nunca queden encima de una obra, sea cual sea su proporción */}
-      <div
-        className={`relative ${totalPages > 1 ? "px-16 md:px-20" : ""} ${naturalAspect ? "h-[46vh] flex items-center" : ""}`}
-      >
+      {/* Imágenes, todas cuadradas (1:1) — el padding horizontal reserva sitio para que las
+          flechas nunca queden encima de una obra */}
+      <div className={`relative h-[46vh] flex items-center ${totalPages > 1 ? "px-16 md:px-20" : ""}`}>
         {totalPages > 1 && (
           <button onClick={prev} aria-label="Anterior" className={`${arrowButtonClass} left-1 md:left-3`}>
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -93,63 +87,26 @@ export default function SeriesCarousel({ images, perPage: perPageProp, autoAdvan
           </button>
         )}
 
-        {naturalAspect ? (
-          <div
-            className="flex w-full justify-center items-stretch gap-3"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            {visible.map(({ src, alt, width, height }) => {
-              // Con forceFirstAspect, todas las celdas usan la proporción de la primera foto
-              // de la serie (recortadas con object-cover); si no, cada una conserva la suya.
-              const refImage = forceFirstAspect ? images[0] : { width, height };
-              return (
-                <div
-                  key={src}
-                  className="relative shrink-0"
-                  style={{
-                    // Ancho acotado por lo que ocuparía a media pantalla de alto Y por el hueco
-                    // disponible en la fila (repartido entre las fotos visibles) — lo que sea
-                    // más estrecho, para que nunca desborde ni se deforme.
-                    width: `min(calc(46vh * ${refImage.width} / ${refImage.height}), calc((100% - ${(perPage - 1) * 12}px) / ${perPage}))`,
-                    aspectRatio: `${refImage.width} / ${refImage.height}`,
-                  }}
-                >
-                  <ArtworkImage
-                    src={src}
-                    alt={alt}
-                    width={width}
-                    height={height}
-                    fill
-                    className={forceFirstAspect ? "object-cover" : "object-contain"}
-                    sizes="46vh"
-                  />
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div
-            className="grid gap-3"
-            style={{ gridTemplateColumns: `repeat(${perPage}, 1fr)` }}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            {visible.map(({ src, alt, width, height }) => (
-              <div key={src} className="relative aspect-[4/3] bg-[#e8e4dc]">
-                <ArtworkImage
-                  src={src}
-                  alt={alt}
-                  width={width}
-                  height={height}
-                  fill
-                  sizes={`(max-width: 768px) 100vw, ${Math.round(100 / perPage)}vw`}
-                />
-              </div>
-            ))}
-            {visible.length < perPage && <div className="aspect-[4/3]" />}
-          </div>
-        )}
+        <div
+          className="flex w-full justify-center items-stretch gap-3"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {visible.map(({ src, alt, width, height }) => (
+            <div
+              key={src}
+              className="relative shrink-0 aspect-square"
+              style={{
+                // Ancho acotado por lo que ocuparía a media pantalla de alto Y por el hueco
+                // disponible en la fila (repartido entre las fotos visibles) — lo que sea
+                // más estrecho, para que nunca desborde.
+                width: `min(46vh, calc((100% - ${(perPage - 1) * 12}px) / ${perPage}))`,
+              }}
+            >
+              <ArtworkImage src={src} alt={alt} width={width} height={height} fill className="object-cover" sizes="46vh" />
+            </div>
+          ))}
+        </div>
 
         {totalPages > 1 && (
           <button onClick={next} aria-label="Siguiente" className={`${arrowButtonClass} right-1 md:right-3`}>

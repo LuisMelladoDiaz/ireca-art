@@ -17,15 +17,15 @@ const ORDER: Partial<Record<ArtworkSection, string[]>> = {
     "relicarios-1", "relicarios-2",
     "azul-marino", "eco-del-mar",
   ],
+  paisaje: [
+    "agua", "aire", "fuego", "tierra", "luna",
+    "instante-1", "instante-2", "instante-3", "instante-4", "instante-5",
+  ],
   mencionEspecial: [
     "camaleon-chipionero", "expo-camaleon-1", "expo-camaleon-2", "expo-camaleon-3",
     "dama-de-los-mares", "expo-dama", "hogar", "expo-hogar-1", "expo-hogar-2",
   ],
 };
-
-// Paisaje va en dos carruseles separados (ver más abajo) — cada uno con su propio orden.
-const PAISAJE_ELEMENTOS_ORDER = ["agua", "aire", "fuego", "tierra", "luna"];
-const PAISAJE_INSTANTES_ORDER = ["instante-1", "instante-2", "instante-3", "instante-4", "instante-5"];
 
 function orderedImages(section: ArtworkSection, slugOrder?: string[]): Artwork[] {
   if (slugOrder) return slugOrder.map((slug) => getArtwork(slug)!).filter(Boolean);
@@ -36,12 +36,7 @@ export default function SerieSection({ section }: Props) {
   const { title, text } = (
     content.obras.archivoEmocional.sections as Record<string, { title: string; text?: string }>
   )[section];
-
-  // "Instantes de océano" es una serie propia dentro de Paisaje — va en su propio carrusel,
-  // separado del resto (agua, aire, fuego, tierra, luna).
-  const instantes = section === "paisaje" ? orderedImages(section, PAISAJE_INSTANTES_ORDER) : [];
-  const images =
-    section === "paisaje" ? orderedImages(section, PAISAJE_ELEMENTOS_ORDER) : orderedImages(section, ORDER[section]);
+  const images = orderedImages(section, ORDER[section]);
 
   return (
     <section id={section} className="bg-[#FFF9F2] px-6 md:px-14 py-16 md:py-20 border-t border-[#001D2F]/8 scroll-mt-16">
@@ -59,19 +54,7 @@ export default function SerieSection({ section }: Props) {
           {text}
         </p>
       )}
-      <SeriesCarousel images={images} naturalAspect forceFirstAspect={section === "paisaje"} />
-
-      {instantes.length > 0 && (
-        <>
-          <p
-            className="italic mt-14 mb-4"
-            style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)", color: "#A11B39", fontWeight: 700 }}
-          >
-            Instantes de océano
-          </p>
-          <SeriesCarousel images={instantes} naturalAspect forceFirstAspect />
-        </>
-      )}
+      <SeriesCarousel images={images} />
     </section>
   );
 }

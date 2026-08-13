@@ -28,6 +28,12 @@ export default function Footer() {
 
         {/* Contacto */}
         <div className="flex flex-col items-center gap-3 md:items-end">
+          <p
+            className="text-black tracking-[0.18em] uppercase text-xs"
+            style={{ fontFamily: "var(--font-lato)", fontWeight: 700 }}
+          >
+            Contacta conmigo:
+          </p>
           <a
             href={`mailto:${email}`}
             className="text-[#001D2F]/65 hover:text-[#001D2F] transition-colors"

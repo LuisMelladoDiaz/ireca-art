@@ -33,7 +33,7 @@ export default function StatementSection() {
       </div>
 
       {/* Right: título (mobile) + texto */}
-      <div className="flex-1 flex flex-col md:justify-center px-10 md:px-16 pt-8 pb-10 md:py-24">
+      <div className="flex-1 flex flex-col md:justify-center px-10 md:px-16 pt-24 pb-10 md:py-24">
 
         {/* Título - solo mobile */}
         <h2
@@ -47,7 +47,7 @@ export default function StatementSection() {
         <div className="md:p-12 w-full flex flex-col gap-5 text-justify">
           <ExpandableBio
             paragraphs={paragraphs}
-            paragraphClassName="leading-[1.9] text-[#001D2F]/70"
+            paragraphClassName="leading-[1.9] text-black"
             paragraphStyle={{
               fontFamily: "var(--font-barlow)",
               fontSize: "clamp(1rem, 1.25vw, 1.2rem)",

@@ -54,7 +54,7 @@ export default function AboutSection() {
 
           {/* Middle: bio */}
           <div
-            className="flex flex-col gap-5 leading-[1.9] text-[#001D2F]/70 text-justify"
+            className="flex flex-col gap-5 leading-[1.9] text-black text-justify"
             style={{
               fontFamily: "var(--font-barlow)",
               fontSize: "clamp(1rem, 1.25vw, 1.2rem)",

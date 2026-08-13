@@ -25,7 +25,7 @@ export default function SerieSelvatico() {
       >
         {text}
       </p>
-      <SeriesCarousel images={images} naturalAspect />
+      <SeriesCarousel images={images} />
     </section>
   );
 }

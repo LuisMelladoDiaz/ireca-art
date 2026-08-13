@@ -7,9 +7,9 @@ import SerieSelvatico from "./archivo-tinta/SerieSelvatico";
 const { title, intro } = content.obras.archivoTinta;
 
 const navTiles = [
-  { href: "#llaves", label: "Ver serie Llaves", cover: { src: "/images/archivo_tinta/Llaves/Llave_1.jpg", alt: "Llaves" } },
-  { href: "#selvatico", label: "Ver serie Selvático", cover: { src: "/images/archivo_tinta/Selvatico/Iguana.png", alt: "Selvático" } },
-  { href: "#otherworldly", label: "Ver videojuego Otherworldly", cover: { src: "/images/archivo_tinta/Otherwordly/Escena_Inicio.png", alt: "Otherworldly" } },
+  { href: "#llaves", label: "Serie Llaves", cover: { src: "/images/archivo_tinta/Llaves/Llave_1.jpg", alt: "Llaves" } },
+  { href: "#selvatico", label: "Serie Selvático", cover: { src: "/images/archivo_tinta/Selvatico/Iguana.png", alt: "Selvático" } },
+  { href: "#otherworldly", label: "Videojuego Otherworldly", cover: { src: "/images/archivo_tinta/Otherwordly/Escena_Inicio.png", alt: "Otherworldly" } },
 ];
 
 export default function ArchivoTintaSection() {
@@ -26,8 +26,8 @@ export default function ArchivoTintaSection() {
       </h2>
 
       <p
-        className="leading-[1.8] text-black text-justify max-w-2xl mx-auto px-6 mt-6"
-        style={{ fontFamily: "var(--font-barlow)", fontSize: "clamp(0.95rem, 1.3vw, 1.15rem)", fontWeight: 300 }}
+        className="leading-[1.8] text-black text-justify italic max-w-3xl mx-auto px-6 mt-6"
+        style={{ fontFamily: "var(--font-lato)", fontSize: "clamp(1rem, 1.6vw, 1.4rem)", fontWeight: 500 }}
       >
         {intro}
       </p>
