@@ -62,6 +62,8 @@ export const EXHIBITION_PIECES: ExhibitionPiece[] = [
     year: 2026,
     medium: "Aguatinta sobre papel",
     dimensions: "38 x 28 cm",
+    description:
+    "Calma, el sonido del mar, el mecer de las olas. Fue la primera obra en la que incluí caracolas y me interesaba representar ese momento, esa paz, … Y, si os fijáis bien, la punta de la primera caracola se parece a la parte superior del Santuario de Regla.  ¿Encuentras algún otro simbolismo?",
     images: imagesFrom(["donde-vivo-hay-caracolas-1", "donde-vivo-hay-caracolas-2"]),
     section: "caracolas",
   },
@@ -71,6 +73,7 @@ export const EXHIBITION_PIECES: ExhibitionPiece[] = [
     year: 2026,
     medium: "Acrílico sobre lienzo",
     dimensions: "90 x 90 cm",
+    description:"Esta serie de obras busca reflejar la conexión que sentimos con el mar: el deseo de formar parte de él y el deleite que nos lleva a querer echar raíces. Esta pintura refleja esa sensación o impulso de sentirse tan  perteneciente a un lugar que acaba fusionándote al mismo.",
     images: imagesFrom(["arraigo"]),
     section: "arraigo",
   },
@@ -91,6 +94,7 @@ export const EXHIBITION_PIECES: ExhibitionPiece[] = [
     year: 2026,
     medium: "Acrílico sobre lienzo",
     dimensions: "130 x 97 cm",
+    description:"Conozco a Carmen desde hace más de 10 años y no podría contar las veces que hemos tenido charlas importantes frente a las olas. Hemos crecido frente al mar y este nos ha visto sanar y reconciliarnos con nosotras mismas miles de veces.",
     images: imagesFrom(["aquellos-dias-de-verano"]),
     section: "arraigo",
   },
@@ -172,7 +176,7 @@ export const EXHIBITION_PIECES: ExhibitionPiece[] = [
     medium: "Acrílico sobre lienzo",
     dimensions: "130 x 89 cm",
     description:
-      "El sol y la luna convergiendo en un mismo cielo: atardece un nuevo día junto a él, y supersticiosamente siempre he creído que las charlas que tienes frente a un buen atardecer como este dan buen augurio y deparan nuevas y mejores experiencias.",
+      "El sol y la luna convergiendo en un mismo cielo. Atardece un nuevo día y supersticiosamente siempre he creído que las charlas que tienes frente a un buen atardecer como este deparan muy  buen augurio y cosas bonitas.",
     images: imagesFrom(["luna"]),
     section: "paisaje",
   },
