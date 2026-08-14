@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Belleza, Barlow, Lato } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { LightboxProvider } from "@/components/Lightbox";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -57,6 +58,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </LightboxProvider>
+        <Analytics />
       </body>
     </html>
   );
